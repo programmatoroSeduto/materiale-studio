@@ -1,0 +1,5 @@
+git ...
+
+INIT
+	inizializzazione della directory che dovrebbe contenere la repository
+	
