@@ -1,0 +1,37 @@
+--- ECHO ---
+
+è un'istruzione che consente di restituire del testo al client.
+FUNZIONAMENTO INTUITIVO: sia il seguente codice HTML + PHP,
+
+<p><?php echo "contenuto di 'p'";?></p>
+
+ciò che risulta da questo codice, una volta ricevuta la risposta dal server, è 
+
+<p>contenuto di 'p'</p>
+
+come se il codice PHP fosse stato "rimpiazzato" col testo nella echo.
+il codice contenuto nel segmento di PHP potrebbe essere anche più complicato di così, mOOOOOOOlto più complicato:
+
+<p>
+	<?php
+		$a = 10;
+		$b = 5;
+		$c = $a + $b;	// c = 15
+		$c = $a - $b;	// c = 5
+		$c = $a * $b;	// c = 50
+		$c = $a / $b;	// c = 2
+		$risultato = '/$c = $c';
+		echo "contenuto di 'p'";
+	?>
+</p>
+
+non importa; il risultato sarà sempre lo stesso di prima:
+
+<p>contenuto di 'p'</p>
+
+quindi,
+-	la risposta del server al client è solo ed esclusivamente il contenuto della echo
+-	il client non vede l'elaborazione interna, ma solo ciò che viene restituito dalla echo
+
+---
+

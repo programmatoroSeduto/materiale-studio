@@ -1,0 +1,8 @@
+ARGOMENTI DI TEORIA IN ORDINE
+
+forma e regole sintattiche di base di uno script PHP
+commenti in PHP
+
+echo
+
+variabili - concetti di base

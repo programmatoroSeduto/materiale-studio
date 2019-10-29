@@ -1,0 +1,28 @@
+---COMMENTI IN PHP---
+
+3 tipi di commento in PHP:
+	
+	//commento inline come in C
+	
+	/*
+		commento su più righe come in C
+	*/
+	
+	#commento inline con cancelletto
+	
+ATTENZIONE! questi commenti si possono utilizzare solo nel tag <?php ... ?>; per l'html il commento è sempre quello su più righe <!-- ... --> .
+
+ESEMPI DI COMMENTI PERMESSI:
+
+<?php
+	
+	//ovviamente questo è permesso...
+	echo 'echo';	//anche sulla riga stessa
+	
+	echo /*inserisco il commento 
+		nell'istruzione;
+			a volte può essere utile...*/ 'echo'; 	#nota bene: il commento su più righe
+												//interno all'istruzione
+											/* ha formato libero!*/
+													
+?>

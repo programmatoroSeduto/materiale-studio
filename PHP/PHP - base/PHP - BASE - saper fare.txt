@@ -1,0 +1,9 @@
+ABILITA' DI BASE - terra terra... meno di così non si può fare...
+
+inserire uno scritp PHP all'interno di una pagina HTML
+eseguire uno script PHP con gli strumenti di lavoro a disposizione sul server(avviare e testare lo script...)
+commentare il codice PHP
+
+saper utilizzare la echo per restituire testo al client
+
+lavorare con le variabili

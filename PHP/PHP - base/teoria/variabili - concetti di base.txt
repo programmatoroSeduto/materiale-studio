@@ -1,0 +1,44 @@
+--- VARIABILI - CONCETTI DI BASE ---
+
+premessa. il modo in cui si gestiscono le variabili in PHP non è difficile da apprendere, ma risulta certamente molto diverso da come si farebbe in C.
+
+---
+
+dichiarazione e definizione di una variabile:
+
+<?php
+	//la variabile 'gianpietro' ha valore numerico 1
+	$gianpietro = 1;
+	
+	//la variabile 'messaggio_1' contiene una stringa ...
+	$messaggio_1 = 'ehila salve a tutti!';
+	//le stringhe si possono esprimere sia con singoli apici che doppi
+	$messaggio_2 = "arrivederci e a presto!";
+	
+	//dichiaro una variabile 'vuoto' che ancora non contiene nulla
+	$vuoto;
+?>
+
+---
+
+ci si può arrivare ad intuito: quanti modi esisteranno di utilizzare queste variabili? pensa a cosa succede nel linguaggio C: il nome di variabile rappresenta completamente il contenuto della variabile. posso modificarlo con l'operatore di assegnazione (anche in PHP è = ) e posso leggerlo nelle operazioni aritmetiche, in quelle logiche, e in ogni altro ambito in cui mi servano delle variabili. 
+unica particolarità: tutti i nomi delle variabili devono iniziare col simbolo del dollaro; questo permette di risparmaire qualche carattere in certi contesti, ad esempio nella creazione di nuove stringhe.
+
+<?php
+	//due numeri
+	$a = 10;
+	$b = 5;
+	
+	//operazioni aritmetiche comuni
+	$c = $a + $b;	// c = 15
+	$c = $a - $b;	// c = 5
+	$c = $a * $b;	// c = 50
+	$c = $a / $b;	// c = 2
+	
+	//utilizzo particolare delle variabili PHP
+	//NOTA: disambiguazione del simbolo $
+	$risultato = '/$c = $c';	// risultato è la stringa '$c = 2'
+?>
+
+---
+
