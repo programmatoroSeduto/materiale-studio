@@ -1,0 +1,35 @@
+OPERATORI IN PHP
+
+sintassi
+	(...) 		raggruppamento di operatori
+
+algebrici
+	+
+	-
+	*
+	/
+	%
+	
+algebrici immediati
+	+=
+	-=
+	*=
+	/=
+	%=
+
+funzioni utili
+	rand()
+	rand(min, max)		nota: anche estremi negativi
+						solo numeri relativi
+	pow(base, exp)
+	
+incremento e decremento unitari
+	++$...
+	$...++
+	--$...
+	$...--
+	
+confronto
+	==			di tipo identico
+	===			identici nel tipo e nel contenuto
+	

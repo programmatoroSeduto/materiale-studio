@@ -6,3 +6,9 @@ commenti in PHP
 echo
 
 variabili - concetti di base
+tipi di dato elementari in PHP
+heredoc
+
+variabili - 2
+operatori in PHP
+

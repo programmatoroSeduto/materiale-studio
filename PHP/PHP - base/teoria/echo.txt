@@ -35,3 +35,25 @@ quindi,
 
 ---
 
+dato che prende in argomento stringhe, la echo ammette anche le ben note escape sequences. riporto qui le più utili:
+	\n			a capo
+	\t			tabulazione
+ma quale effetto hanno se utilizzate nella echo?
+
+prendiamo il seguente codice:
+
+<p><?php echo "contenuto\tdi\n'p'";?></p>
+
+il risultato di questo semplice script sarà questo:
+
+<p>contenuto	di
+'p'</p>
+
+ovvero il codice php includerà anche i caratteri espressi dalle escape sequences. nota che HTML non vede questi caratteri; questo consente una maggior leggibilità del codice.
+
+la echo si comporta così anche per un altro semplice motivo. La echo in generale genera una risposta al client da parte del server, che può essere utilizzata per molti scopi diversi dal client; dunque, la echo dovrà mantenere tutte le informazioni nella stringa, non può escludere alcun carattere.
+
+caratteri come \n nella formattazione degli elementi HTML non hanno effetto. perciò, bisognerà restituire direttamente il tag <br>. Quedto si può fare in generale con tutti i tag HTML: la echo viene utilizzata spesso anche per restituire markup HTML al client.
+
+---
+

@@ -1,0 +1,102 @@
+TIPI DI DATO ELEMENTARI IN PHP
+
+ricordiamo che PHP è un linguaggio di scripting debolmente tipato, dunque 
+-	la variabile è solo un contenitore di dati, che può contenere qualunque cosa
+-	non è necessario (al contrario di C, C++, java) dichiarare il tipo di una variabile al momento della dichiarazione
+l'interprete PHP riconosce in automatico i tipi di dato, e gestisce di conseguenza tutte le combinazioni tra tipi di dato.
+
+---
+
+PHP mette a disposizione i seguenti valori utili in ogni caso:
+	null
+	
+
+---
+
+BOOLEANI
+
+<?php
+    $vero = true;
+    $falso = false;
+    $vero = 1 && 1;
+    $falso = 1 && 0;
+
+
+    $vero = 1 || 0;
+    $falso = 0 || 0;
+?>
+
+costanti: true, false.
+	NOTA: 0 = false, 1 = true .
+operatori:
+	AND		&&
+	OR		||
+
+---
+
+INTERI
+
+<?php
+    $intero = 1;
+    $intero = 1231231;
+    $intero = -234224;
+    $intero = 1 + 1;
+    $intero = 1 - 1;
+    $intero = 3 * 4;
+?>
+
+---
+
+FLOAT e DOUBLE
+
+<?php
+    $float = 10.3;
+    $float = -33.45;
+    $float = 6.1e6; // 6,1 * 10^6 => 6.100.000
+    $float = 3E-7;  // 3 * 10^-7  => 3/10.000.000 = 0,0000003
+?>
+
+occhio: usa la notazione scientifica, quindi si usa il PUNTO decimale e la notazione segno-mantissa-esponente .
+
+---
+
+STRINGHE
+
+una stringa è una sequenza di caratteri; contrariamente a quanto accade in C, le dimensioni della stringa sono "dinamiche" ovvero è possibile modificare dinamicamente una stringa.
+
+<?php
+    $stringa = "ciao come stai?";
+    $stringa = 'ciao come stai?';
+    $stringa = "lei mi ha chiesto 'come stai?'";
+    $stringa = 'lei mi ha chiesto "come stai?"';
+    
+	//NOTA IMPORTANTE
+	//le seguenti stringhe non sono valide perché contengono lo stesso carattere di apertura
+    //all'interno della stringa
+    $stringa_non_valida = "lei mi ha chiesto "come stai?"";
+    $stringa_non_valida = 'lei mi ha chiesto 'come stai?'';
+	//utilizzare il backslash, \, per impiegare il carattere di apertura all'interno della stringa
+    //tale operazione viene definita escaping delle stringhe
+    $stringa_valida = "lei mi ha chiesto \"come stai?\"";
+    $stringa_valida = 'lei mi ha chiesto \'come stai?\'';
+?>
+
+definizione di una stringa utilizzando singolo o doppio apice (non esiste il char in PHP). 
+CONCATENZIONE utilizzando il punto.
+NOTA IMPORTANTE: anche sul simbolo dollaro dev'essere fatto escaping, se lo si vuole utilizzare come simbolo di una stringa. altrimenti, l'utilizzo del simbolo corrisponde al richiamare una variabile. vedi l'esempio.
+
+<?php
+    $stringa1 = "Ciao ";
+    $nome = "Simone";
+    $stringa2 = ", come stai?";
+	
+	//concatenazione
+    $stringa = $stringa1 . $nome . $stringa2; //Ciao Simone, come stai?
+	
+	//concatenazione senza utilizzare il punto
+	$stringa = "$stringa1 $nome $stringa2";
+?>
+
+vedi anche la notazione HEREDOC per inserire le stringhe, poco utilizzata (e poco utile) rispetto alla notazione convenzionale.
+
+--- 

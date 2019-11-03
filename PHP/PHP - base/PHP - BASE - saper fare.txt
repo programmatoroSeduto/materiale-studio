@@ -5,5 +5,10 @@ eseguire uno script PHP con gli strumenti di lavoro a disposizione sul server(av
 commentare il codice PHP
 
 saper utilizzare la echo per restituire testo al client
+restituire del markup HTML da server
 
 lavorare con le variabili
+saper definire e trattare le costati semplici
+saper utilizzare tutti i tipi di base
+saper trattare le stringhe con semplic operazioni
+

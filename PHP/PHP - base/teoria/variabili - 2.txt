@@ -1,0 +1,126 @@
+VARIABILI - PARTE 2
+
+regole per l'identificatore di variabile:
+-	non possono iniziare per numero
+-	il nome può contenere numeri, caratteri e underscore
+-	il nome deve contenere almeno un carattere (_111 non è un id valido! mentre _11111111i lo è)
+
+---
+
+consiglio prezioso: assegna sempre un valore iniziale SIGNIFICATIVO alle variabili, per evitare problemi nell'esecuzione nel codice. può capitare di non aver previsto un comportamento del codice (errore umano); inizializzare le variabili in ogni caso può essere utile per idetificare l'errore in tempi brevi.
+
+---
+
+SCOPE DELLE VARIABILI
+
+->LOCALE
+	la variabile è visibile solo all'interno del blocco di codice, e non altrove
+	una variabile dunque non è visibile
+	-	nel blocco che racchiude quello nel quale viene definita la variabile
+	-	nelle chiamate a funzione (le procedure "vivono" in ambienti completamente distaccati)
+	una variabile locale viene eliminata una volta che il blocco di codice è stato completamente eseguito.
+	
+->GLOBALE
+	la variabile è visibile in ogni blocco di codice, ma non nelle funzioni invocate.
+	quindi,
+	-	come in C, una variabile globale sta nel livello più esteno possibile
+	-	a differenza di C, una variabile globale non è accessibile all'interno di una funzione
+	le variabili globali non vengono mai eliminate durante l'esecuzione del programma: rimangono sempre a disposizione.
+	
+	l'ultimo caso è particolare: esiste una keyword del linguaggio che permette di accedere alle variabili globali all'interno delle procedure chiamate, la "global". è necessario "richiedere" l'accesso alle variabili globali "dichiarando" il nome della variabileglobale alla quale si vuole accedere. vedi esempio.
+	
+<?php
+	//funzione
+		global $glb1, $glb2 ;
+		//ora posso accedere a $glb1 e $glb2 da questa funzione
+	//end funzione
+?>
+
+	esiste poi un'altra eccezione: le variabili superglobali. vedi seguito.
+	
+->STATICO
+	formalmente, le variabili statiche sono locali: le regole di visibilità sono le stesse delle variabili globali. però non vengono eliminate alla chiusura della funzione o del blocco di codice, rimangono memorizzate, a disposizione della prossima chiamata del blocco.
+	evidentemente, queste variabili servono più per l'esecuzione delle funzioni che per i semplici blocchi di codice; in generale, lo scope static si usa per blocchi di codice che devono essere ripetuti più volte; permette di risparmiarsi anche di salvare valori in altre variabili, procedura che in molti casi risulterebbe scomoda.
+	
+->SUPERGLOBALE
+	PHP mette a disposizione uno scope SUPERGLOBALE; le variabili di questo tipo sono visibili OVUNQUE nel programma. 
+	evidentemente le variabili superglobali devono essere utilizzate spesso in tutte le parti del programma, perciò lo scope superglobale permette di risparmiare codice.
+	Va notato che molto spesso le variabili superglobali sono impostate in automatico dall'interprete PHP, in base al compito che lo script PHP deve svolgere. ad esempio, nei server le variabili superglobali servono per interpretare la richiesta del client, e per ritrovare informazioni allegate alla richieta.
+	
+---
+
+VARIABILI DINAMICHE
+php permette di assegnare dinamicamente un nome di variabile un po' come si fa per le stringhe.
+si utilizza la notazione $<var> per assegnare il nome; la notazione rimane la stessa sia in lettura che in scrittura.
+esempio: 
+
+<?php
+	$mario = 'maruo';
+	
+	//definisco una variabile che si chiama ... ? quello che c'è in $maruo
+	//NOTA: la stringa dev'essere un identificatore valido
+	$$mario = 50;
+	
+	echo $mario . $maruo ;
+?>
+
+---
+
+COSTANTI
+e come si definiscono le costanti? non con la notazione convenzionale.
+si usa questa notazione: funzione define(),
+
+<?php
+	define('COSTANTE', 'stringa');
+	define('POST_PER_PAGINA', 10);
+	define('TEMPLATE_EMAIL', 'template.html')
+?>
+
+le costati sono sempre valori globali (nota: non superglobali).
+
+anche l'accesso alle costanti è particolare: NON SI DEVE UTILIZZARE il dollaro davanti al nome; basta il nome, come in C o java.
+in alternativa, si può utilizzare anche la funzione defined() per accedere alla costante, vedi l'esempio.
+
+
+<?php
+	define('COSTANTE', 'stringa');
+	define('POST_PER_PAGINA', 10);
+	define('TEMPLATE_EMAIL', 'template.html')
+	
+	echo COSTANTE;
+	echo defined('COSTANTE');	//OCCHIO: la funzione prende in argomento una stringa
+?>
+
+qual'è la differenza tra i due metodi di accesso?
+-	usando defined() non verrà ritornato errore se la costante non esiste
+-	l'accesso denza defined() ritorna errore se la costante non esiste
+
+---
+
+PHP mette a disposizione diverse costanti che permettono di dare allo script informazioni sull'ambiente di esecuzione:
+	__FILE__			path dello script attualmente in esecuzione
+	__DIR__				come __FILE__ escludendo il nome dello script
+	
+	__FUNCTION__		nome della funzione attualmente in esecuzione
+						stringa vuota se non c'è stata alcuna chiamata a funzione.
+						vedi esempio.
+	__METHOD__			come __FUNCTION__ ma per i metodi di una classe
+	
+<?php
+	echo "" . __FUNCTION__ ;
+	
+	function k()
+	{
+		$fct = __FUNCTION__ ;
+		//$fct = $fct . 'cc';
+		echo $fct ;
+	}
+	k();
+?>
+	
+	__CLASS__			nome della classe attualmente "in funzione"
+	
+ce ne sono molte altre.	
+
+---
+
