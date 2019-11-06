@@ -16,3 +16,5 @@ operatori in PHP
 costrutti di controllo - base
 
 funzioni utili per lavorare con le stringhe
+
+array

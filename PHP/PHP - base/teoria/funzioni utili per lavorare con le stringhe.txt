@@ -113,3 +113,24 @@ rimuovi gli spazi non necessari:
 								trim(stringa)
 ...solo a destra:				rtrim(stringa)
 ...solo a sinistra:				ltrim(stringa)
+
+generare stringhe da concatenazioni(molto simile alla printf() in C):
+								sprintf(format, ... info ...)
+	parametri:
+format					la stringa contenente i placeholder(preceduti dal simbolo %)
+info					un elenco di variabili da utilizzare per rimpiazzare i placeholder
+la funzione ritorna una stringa formattata come richiesto.
+
+ALCUNI PLACEHOLDER di uso comune
+%d						intero
+%s						stringa
+%c						carattere
+%e o %E					numero in notazione scientifica (es: %e-5 , %E4 , ...)
+%f						numero in virgola mobile
+				nota: %.2f ovvero numero reale con 2 cifre significative dopo la virgola
+
+confronto tra stringhe:			strcmp(str1, str2)
+			nota: ritorna <0 o >0 se le stringhe non sono identiche
+				altrimenti 0.
+confronto non case-sensitive:	strcasecmp(str1, str2)
+			stesso tipo di ritorno della precedente

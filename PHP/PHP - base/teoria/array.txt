@@ -1,0 +1,105 @@
+ARRAY
+
+---
+
+definizione di un array monodimensionale:
+-	utilizzando la funzione array( ...elems... )
+-	con una notazione molto simile al C
+
+<?php
+	//usando la funzione array()
+	$frutti = array('banana', 'pesca', 'lampone');
+	
+	//usando la notazione convenzionale degli array
+	$frutti = ['banana', 'pesca', 'lampone'];
+?>
+
+---
+
+accesso ad un elemento di array monodimensionale: esiste un solo modo, la notazione con le parentesi quadre.
+
+<?php
+	$frutti = ['banana', 'pesca', 'lampone'];
+	
+	//leggo il secondo elemento dell'array
+	echo $frutti[1];
+?>
+
+con questo metodo si esegue l'accesso sia in lettura che in scrittura.
+
+---
+
+PHP mette a disposizione anche gli array associativi. quali differenze ci sono rispetto all'array normale?
+-	ad ogni cella dell'array è associato non più un indice, ma un alias
+-	nella definizione di array devo indicare sia l'alias che il valore 
+		usado la notazione 'alias' => valore (ricorda il simbolo di implicazione logica, anche nel significato:
+		'frutto' => 'mela' si può leggere come "io ti dico frutto, quindi mela")
+-	accedo ad una cella scrivendo nelle parentesi quadre l'alias, RIPORTATO COME STRINGA
+
+<?php
+	//definizione utilizzando la notazione convenzionale
+	$data = [
+		'anno' => 2019 , 
+		'mese' => 'nov' , 
+		'giorno' => 6 , 
+		'ora' => 23 , 
+		'minuto' => 44
+	];
+	
+	//definizione usando la funzione array()
+	$data = array(
+		'anno' => 2019 , 
+		'mese' => 'nov' , 
+		'giorno' => 6 , 
+		'ora' => 23 , 
+		'minuto' => 44
+	);
+	
+	//accesso ad un array associativo
+	echo 'anno: ' . $data['anno'];
+?>
+
+---
+
+Ogni cella di un arrai in PHP si può intendere come una variabile qualunque: un contenitore, dentro al quale è possibile mettere qualunque cosa si voglia in qualunque momento. Una cella potrebbe dunque contenere dai semplici tipi di base ad altri array e strutture dati più complesse. Questa è l'osservazione di base che permette di creare, oltre agli array disomogenei, gli ARRAY DI ARRAY ovvero matrici, e tabelle n-dimensionali.
+
+queste strutture dati si definiranno esattamente come visto finora, innestando le definizioni di array. si potrà utilizzare per l'accesso ad array innestati la seguente notazione:
+
+$array[idx-1][idx-2]
+
+intendi: trovo l'elemento dell'array $array[idx-1] il quale è un array, quindi dovrò usare anche su questo un indice, ($array[idx-1])[idx-2] ovvero $array[idx-1][idx-2] . In altre parole, $array[idx-1] lo posso vedere come il nome dell'array che mi interessa utilizzare.
+
+non ci vuole molto a capire che questo meccanismo si pò estendere a spazi di N indici.
+
+---
+
+funzione molto utile per visualizzare (in fase di debug) gli elementi di un array, quasi analogo al toString() di Java:
+
+print_r(array)
+
+mettiamo di aver creato un array fatto così:
+
+$partecipanti = [
+'Simone' => [
+'anno' => '1986',
+'sesso' => 'M',
+'email' => 'test@notreal.com'
+],
+'Gabriele' => [
+'anno' => '1991',
+'sesso' => 'M',
+'email' => 'test2@notreal.com'
+],
+'Josephine' => [
+'anno' => '1985',
+'sesso' => 'F',
+'email' => 'test3@notreal.com'
+],
+];
+
+la funzione ritorna una stringa che descrive il contenuto di un array. assomiglierà alla seguente:
+
+Array([Simone] => Array([anno] => 1986 [sesso] => M[email] => test@notreal.com)[Gabriele] => Array([anno] => 1991[sesso] => M[email] => test2@notreal.com)[Josephine] => Array([anno] => 1985[sesso] => F[email] =>test3@notreal.com))
+
+---
+
