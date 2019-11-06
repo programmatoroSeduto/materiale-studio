@@ -29,7 +29,18 @@ incremento e decremento unitari
 	--$...
 	$...--
 	
+logici
+	||
+	&&
+	xor
+	!					not
+	
 confronto
 	==			di tipo identico
 	===			identici nel tipo e nel contenuto
-	
+	!=
+	!==
+	<
+	<=
+	>
+	>=

@@ -1,0 +1,78 @@
+COSTRUTTI DI CONTROLLO - BASE
+
+costrutto condizionale, esattamente come in C:
+
+//versione col solo IF:
+if ( <condizione> ) 
+{
+	//blocco di codice
+	//viene eseguito solo se la condizione è verificata
+}
+
+
+//forma if-else
+if ( <condizione> ) 
+{
+	//blocco di codice
+	//viene eseguito solo se la condizione è verificata
+}
+else 
+{
+	//bloco di codice
+	//eseguito se nessun caso sopra si verifica
+}
+//nota: il blocco else è falcoltativo in ogni caso
+
+
+//forma if-elseif-else:
+if ( <condizione> ) 
+{
+	//blocco di codice
+	//viene eseguito solo se la condizione è verificata
+}
+elseif
+{
+	//valutato come un if
+	//solo se nessuna condizione data sopra si verifica
+}
+//avanti con altri blocchi elseif
+else 
+{
+	//bloco di codice
+	//eseguito se nessun caso sopra si verifica
+}
+
+---
+
+in PHP sono considerati falsi questi elementi:
+
+->	una qualunque stringa contenente il carattere 0
+->	una stringa vuota
+->	un array di zero elementi
+->	il valore null
+
+---
+
+come in C, in PHP esiste il costrutto switch-case:
+
+switch ( <variabile> )
+{
+	case <valore-1>:
+		//codice
+	break;
+	
+	...
+	
+	case <valore-N>:
+		//codice
+	break;
+	
+	//opzionale
+	default:
+		//codice
+}
+
+viene selezionato il codice da eseguire in base al valore della variabile indicata nelle parentesi di switch().
+
+---
+
