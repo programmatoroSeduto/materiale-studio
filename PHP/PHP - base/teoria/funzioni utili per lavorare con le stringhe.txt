@@ -37,3 +37,79 @@ ESEMPIO:
 
 invertire una stringa:			strrev(stringa)
 restituisce la stringa invertita
+
+sostituire TUTTE le occorrenze di una stringa:
+								str_replace(search, replace, subject, count)
+	parametri:
+search					la sottostringa da cercare
+replace					la sottostringa con cui sostituire search
+subject					la stringa (variabile semplice, array, matrice, ...) da cui prendere la stringa da elaborare
+count					(opzionale) variabile in cui memorizzare il numero di occorrenze sostituite
+la funzione ritorna la stringa modificata; non modifica direttamente il contenuto della variabile subject.
+
+ESEMPIO:
+<?php
+	$stringa = 'Il mio nome è Simone';
+	echo str_replace('Simone', 'Luca', $stringa); // stamperà "Il mio nome è Luca"
+	$stringhe = array(
+		'Il mio nome è Simone',
+		'Simone è nato nel 1986'
+	);
+	str_replace('Simone', 'Luca', $stringhe); // sostituirà tutte le occorrenze di Simone con Luca all'interno dell'array
+?>
+
+suddividere una stringa:		explode(separator, string, limit)
+	parametri:
+separator				il separatore, ovvero la sottostringa che indica il punto dove spezzare la stringa
+					il separatore non rientra nella stringa ritornata dalla funzione
+string					la stringa da elaborare; al solito stringa, matrice, array, ...
+limit					(opzionale) numero massimo di elementi da estrarre
+la funzione ritorna la stringa elaborata; anche qui, la sorgente non viene modificata.
+
+ESEMPIO:
+<?php
+	$data = '01/02/2016';
+	$elementi = explode('/', $data);
+		// conterrà
+		// Array
+		// (
+		//  [0] => 01
+		//  [1] => 02
+		//  [2] => 2016
+		// )
+	$data = implode('/', $elementi); //conterrà '01/02/2016'
+?>
+
+ricomponi una serie di stringe:
+								implode(glue, pieces)
+parametri:
+glue					(la "colla") la stringa che separa i vari elementi della concatenazione
+pieces					la struttura dati che contiene gli elementi da unire in un'unica stringa
+ritorna la stringa costruita.
+
+ESEMPIO:
+<?php
+	$data = '01/02/2016';
+	$elementi = explode('/', $data);
+		// conterrà
+		// Array
+		// (
+		//  [0] => 01
+		//  [1] => 02
+		//  [2] => 2016
+		// )
+	$data = implode('/', $elementi); //conterrà '01/02/2016'
+?>
+
+tutto in maiuscolo:				strtoupper(stringa)
+tutto in minuscolo:				strtolower(stringa)
+prima lettera in minuscolo:		lcfirst(stringa)
+prima lettera in maiuscolo:		ucfirst(stringa)
+prima lettera di tutte le parole in maiuscolo:
+								ucwords(stringa)
+tutte restituiscono una copia della stringa.
+
+rimuovi gli spazi non necessari:
+								trim(stringa)
+...solo a destra:				rtrim(stringa)
+...solo a sinistra:				ltrim(stringa)
