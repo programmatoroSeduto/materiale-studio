@@ -1,8 +1,5 @@
 CONTINUA DA
-https://www.html.it/pag/56925/formattazione-delle-stringhe-in-php/
-
-continuare la scrittura del file
-	...\PHP\PHP - base\teoria\funzioni utili per lavorare con le stringhe.txt
+https://www.html.it/pag/16691/le-funzioni-php-per-gestire-gli-array/
 	
 NOTA:
 	in futuro, aggiungere
