@@ -1,0 +1,9 @@
+PRINT
+
+funziona come echo, ma con alcune limitazioni in più. meglio utilizzare SEMPRE la echo.
+
+---
+
+differenze:
+-	la print ha un valore di ritorno booleano; la echo non ha valore di ritorno
+-	la print non consente argomenti multipli, mentre la echo sì

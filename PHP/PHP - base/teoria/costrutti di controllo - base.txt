@@ -44,6 +44,16 @@ else
 
 ---
 
+forma abbreviata della forma if-else, detto anche operatore ternario:
+	<condizione> ? <codice-if> : <codice-else>;
+	
+a cosa può servire questa forma? questo è un esempio di utilizzo:
+	$tipologia = ($altezza >= 180) ? 'alto' : 'normale';
+	
+consente di risparmiare righe di codice, rendendolo così più leggibile.
+
+---
+
 in PHP sono considerati falsi questi elementi:
 
 ->	una qualunque stringa contenente il carattere 0
@@ -72,7 +82,66 @@ switch ( <variabile> )
 		//codice
 }
 
-viene selezionato il codice da eseguire in base al valore della variabile indicata nelle parentesi di switch().
+viene selezionato il codice da eseguire in base al valore della variabile indicata nelle parentesi di switch(). attenzione al break a conclusione di ogni blocco di codice!
+se più blocchi di codice sono associati allo stesso valore, scrivo:
+
+<?php
+	$colore = 'rosso';
+	switch ($colore) {
+		case 'blu':
+		case 'verde':
+			echo "Il colore selezionato è un colore freddo";
+			break;
+		case 'giallo':
+		case 'rosso':
+		case 'arancione':
+			echo "Il colore selezionato è un colore caldo";
+			break;
+		default:
+			echo "Nessun colore corrispondente alla tua selezione";
+			break;
+	}
+?>
+
+esattamente come in C.
+
+---
+
+ciclo for() esattamente come in C:
+
+for(<contatore>; <condizione>; <aggiornamento>)
+{
+	//blocco di codice
+}
+
+la sezione <contatore> serve ad inizializzare e istanziare i contatori, e viene eseguita ovviamente prima di eseguire il blocco. 
+prima di iniziare, l'interprete testa la condizione. in generale il blocco di codice viene eseguito se la condizioe risulta verificata.
+ogni volta che la condizione è verificata, viene eseguito il contenuto della sezione aggiornamento.
+
+come in C, PHP mette a disposizione due parole chiave, utilizzabili in ogni costrutto ciclico:
+	continue			passa al prossimo test della condizione
+	break				interrompe il ciclo
+	
+---
+
+ciclo while() come in C:
+
+while(<condizione>)
+{
+	//blocco di codice
+}
+
+ogni volta, prima di eseguire il codice si fa il test: se la condizione risulta verificata, si esegue il blocco di codice. altrimenti, il ciclo termina.
+
+esiste anche la versione che fa il test solo dopo l'esecuzione del blocco di codice:
+
+do
+{
+	//blocco di codice
+}
+while( <condizione> )
+
+nota la mancanza del punto e virgola alla fine del while. qui non serve.
 
 ---
 

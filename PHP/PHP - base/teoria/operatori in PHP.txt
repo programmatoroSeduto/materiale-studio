@@ -2,6 +2,9 @@ OPERATORI IN PHP
 
 sintassi
 	(...) 		raggruppamento di operatori
+	
+condizionale
+	<condizione> ? <codice-if> : <codice-else>;
 
 algebrici
 	+

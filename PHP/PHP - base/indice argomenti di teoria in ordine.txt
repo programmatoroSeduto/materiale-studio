@@ -4,6 +4,7 @@ forma e regole sintattiche di base di uno script PHP
 commenti in PHP
 
 echo
+print
 
 variabili - concetti di base
 tipi di dato elementari in PHP
@@ -13,3 +14,5 @@ variabili - 2
 operatori in PHP
 
 costrutti di controllo - base
+
+funzioni utili per lavorare con le stringhe
