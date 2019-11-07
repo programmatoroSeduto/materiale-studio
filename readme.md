@@ -1,8 +1,10 @@
 CONTINUA DA
+->	PHP
 https://www.html.it/pag/16691/le-funzioni-php-per-gestire-gli-array/
+->	CSS
+https://www.html.it/pag/14221/valori-e-unit-di-misura/
 	
-NOTA:
-	in futuro, aggiungere
+NOTA(PHP): in futuro, aggiungere
 	https://www.html.it/pag/55677/ciclo-foreach-in-php/
 	https://www.html.it/pag/16692/gestire-le-date-in-php/
 	https://www.html.it/pag/60273/le-espressioni-regolari-in-php/

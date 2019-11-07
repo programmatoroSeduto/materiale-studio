@@ -1,0 +1,48 @@
+DISTINZIONI UTILI
+
+---
+
+due distinzioni nell'HTML di base:
+
+BLOCK
+-	occupano tutta la larghezza disponibile (tutta la riga)
+-	quando l'interprete trova un elemento block, crea una nuova riga nella visualizzazione
+
+INLINE
+-	occupano solo lo spazio richiesto dal contenuto
+-	non viene creata alcuna riga, a meno che tutta la riga non sia stata riempita completamente
+
+In generale ogni tag appartiene ad una delle due categorie di default:
+-	<p> è block
+-	<h1> è block
+-	<a> è inline
+possiamo però modificare questa impostazione utilizzando l'attributo "display" messo a disposizione dal CSS.
+
+---
+
+importante introdurre anche la seguente distinzione:
+
+ELEMENTI RIMPIAZZATI (cerca anche "repaced elements")
+-	le dimensioni dell'elemento dipendono strettamente dal contenuto del tag
+un esempio è il tag <img>: le dimensioni effettive del tag nella pagina dipendono dalle dimensioni dell'immagine che il tag contiene.
+elementi rimpiazzati:
+
+    <iframe>
+    <video>
+    <embed>
+    <img>
+
+
+ELEMENTI NON RIMPIAZZATI
+-	le dimensioni dell'elemento sono note a priori
+elementi non rimpiazzati:
+
+    <option>
+    <audio>
+    <canvas>
+    <object>
+    <applet>
+
+---
+
+

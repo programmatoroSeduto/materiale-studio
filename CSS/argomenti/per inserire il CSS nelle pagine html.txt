@@ -1,0 +1,13 @@
+PER INSERIRE IL CSS NELLE PAGINE HTML
+
+-   foglio esterno
+        <link rel="stylesheet" type="text/css" href="documentoCSS.css">
+-   all'interno di <head> usando l'elemento <style>
+-   usando l'attributo style, che consente di inserire il CSS direttamente nell'HTML(meglio non usare spesso la cosa...)
+
+COME SI RISOLVONO I CONFLITTI?
+regola della cascata:
+    prima gli stili inline, se presenti
+    poi quelli nel documento HTML, importati o posti con <style>, in ordine di invocazione
+    infine, lo stile di default del browser
+    
