@@ -1,0 +1,78 @@
+FUNZIONI
+
+---
+
+definizione di funzione:
+
+function <nome-funzione> ( ... , <parametri> , ... ) 
+{
+	//...codice...
+}
+
+alcune osservazioni:
+-	tutte le definizioni di funzioni sono precedute dalla parola chiave "function"
+-	nella lista di parametri basta indicare i nomi (ricorda che PHP è debolmente tipato) 
+-	occhio a non dimenticare il dollaro nei nomi di parametro!
+
+---
+
+esattamente come in C e molti altri linguaggi, PHP mette a disposizione la keyword return.
+
+---
+
+è possibile dare valori di default ai parametri utilizzando la notazione dell'esempio:
+
+<?php
+	function somma($a, $b = 10) {
+		return $a + $b;
+	}
+?>
+
+in questo esempio, il valore di $b è inizializzato a 10, e si mantiene a quel valore se il parametro non viene passato dal chiamante. Quindi l'inizializzazione rende opzionale un parametro: posso chiamare nel codice la funzione utilizzando un solo parametro anzichè due. 
+
+<?php
+	function somma($a, $b = 10) {
+		return $a + $b;
+	}
+	
+	//questa chiamata non è valida:
+	echo somma();
+	
+	//questa è valida:
+	echo somma(2);
+	
+	//anche questa è valida
+	echo somma(2, 18);
+	
+	//strano a dirsi, ma pure questa è valida
+	echo somma(2, 18, 33);
+	
+	//e ogni altra chiamata con più di un solo parametro è valida!
+?>
+
+l'interprete si pianta solo quando ci sono meno parametri di quanti sono necessari.
+NOTA IMPORTANTISSIMA! metti sempre le variabili opzionali in fondo.
+
+---
+
+esiste anche un altro tipo di definizione di funzione: la FUNZIONE ANONIMA. una funzione anonima è assimilabile ad un dato, un "oggetto" che può essere contenuto in una variabile. vedi l'esempio.
+
+<?php
+	//la variabile contiene una funzione anonima
+	$funct = function($a, $b = 10) 
+	{
+		return $a + $b;
+	};
+	
+	//chiamata a funzione anonima
+	echo $funct(5);
+?>
+
+alcune osservazioni sulla sintassi di una funzione anonima:
+-	la dichiarazione è preceduta sempre dalla keyword "function"
+-	per chiamare una funzione anonima si utilizza come nome la variabile che la contiene
+-	non è necessario dare un nome alla funzione anonima: il suo nome coinciderà con quello del contenitore che la contiene
+-	a differenza di quanto accade per le funzioni comuni, la funzione anonimaè soggetta alle regole di visibilità dato che è accessibile solo attraverso la variabile che la contiene
+
+---
+

@@ -1,5 +1,7 @@
 ARRAY
 
+NOTA. come in JavaScript, gli array PHP sono contenitori dinamici: si possono aggiungere e togliere celle in qualunque momento.
+
 ---
 
 definizione di un array monodimensionale:
@@ -100,6 +102,86 @@ $partecipanti = [
 la funzione ritorna una stringa che descrive il contenuto di un array. assomiglierà alla seguente:
 
 Array([Simone] => Array([anno] => 1986 [sesso] => M[email] => test@notreal.com)[Gabriele] => Array([anno] => 1991[sesso] => M[email] => test2@notreal.com)[Josephine] => Array([anno] => 1985[sesso] => F[email] =>test3@notreal.com))
+
+---
+
+PHP mette a disposizione un particolare costrutto di controllo per ciclare sugli elementi di un array associativo: il foreach, molto simile al java, almeno nel concetto.
+ecco la sintassi del costrutto:
+
+foreach(<array> as <chiave-array> => <valore-array>)
+{
+	//codice
+}
+
+dove
+-	<array> è ovviamente l'array associativo
+-	<chiave-array> è una variabile che contiene la chiave dell'elemento attualmente considerato
+-	<valore-array> è una variabile temporanea contenente il valore dell'attuale elemento considerato
+
+il principio:
+-	guardo uno ad uno gli elementi dell'array; l'ordine non è importante in questo caso
+-	ogni volta che trovo un elemento nuovo, mi annoto chiave e valore dell'elemento
+-	poi eseguo il ciclo
+-	continuo questo lavoro fin quando ci sono elementi nell'array
+
+ESEMPIO:
+<?php
+	$eta_utenti = array(
+	'Simone' => 29,
+	'Josephine' => 30,
+	'Giuseppe' => 23,
+	'Renato' => 26,
+	'Gabriele' => 24
+	);
+	$somma_eta = 0;
+	foreach ($eta_utenti as $nome => $eta) {
+	echo "L'utente " . $nome . " ha " . $eta . " anni\n";
+	$somma_eta += $eta;
+	}
+	echo "La somma delle età degli utenti è: " . $somma_eta;
+?>
+
+---
+
+la stessa notazione si può usare per gli array comuni, in quei casi in cui non mi interessa avere un contatore numerico per scorrere nell'array. notazione molto simile:
+
+foreach(<array> as <elemento>)
+{
+	//...codice...
+}
+
+ESEMPIO:
+<?php
+	$array_monodimensionale = array(1, 2, 3, 4, 5);
+	$somma = 0;
+	foreach ($array_monodimensionale as $valore) {
+	$somma += $valore;
+	}
+	echo "La somma degli elementi dell'array è: " . $somma;
+?>
+
+---
+
+FUNZIONI UTILI per lavorare sugli array:
+
+quanti elementi?				count(array)
+
+c'è questo elemento?			in_array(elemento, array)
+
+mescola							shuffle(array)
+	NOTA BENE: shuffle() modifica direttamente l'array in argomento
+	
+inversione ordine				array_reverse(array)
+	NOTA: ritorna una copia elaborata dell'array
+	
+unire due array					array_merge(arr-1, arr-2)
+
+unire tanti array				array_merge( ..., arr-k, ... )
+
+estrai una porzione di array	array_slice(array, min, max)
+	min 		indice iniziale, compreso
+	max			indice finale, non compreso
+	NOTA: solo per array indicizzati, non associativi
 
 ---
 

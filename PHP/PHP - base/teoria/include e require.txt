@@ -1,0 +1,38 @@
+INCLUDE E REQUIRE
+
+include e require sono due keyword del linguaggio molto utili per includere codice da altri file PHP. 
+
+---
+
+sintassi uguale per entrambe le istruzioni:
+
+include <path>;
+require <path>;
+
+ESEMPIO:
+<?php
+	include 'nomedelfile.php';
+	require 'nomedelfile.php';
+?>
+
+il risultato è lo stesso: "copia e incolla" il contenuto del file PHP a quest'indirizzo su quello che sto eseguendo adesso. 
+
+---
+
+se il file non viene trovato? e se avviene qualche errore nell'esecuzione del codice incluso? ecco la differenza tra include e require: se accadesse qualche problema,
+-	include non interromperebbe l'esecuzione; si avrebbe solo un warning
+-	require interromperebbe l'esecuzione dello script, FATAL_ERROR
+
+nota bene. le variabili create nel php importato rimangono nel php attualmente in esecuzione! questo meccanismo può essere comodo per acquisire informazioni già memorizzate in altri file: basta "includere" quelle informazioni nel proprio script per averle subito a disposizione. 
+
+---
+
+può essere utile assicurarsi che un certo script, anche se richiamato più volte, venga eseguito una sola volta. per far questo, PHP mette a disposizione due varianti:
+
+include_once <path>;
+require_once <path>;
+
+servono ad evitare comportamenti inaspettati da parte dello script.
+
+---
+
