@@ -1,0 +1,43 @@
+COOKIES
+
+i cookies sono, formalmente parlando, stringhe, allegate alle richieste HTTP, che identificano l'utente.
+l'idea di fondo è semplice. ogni volta che l'utente fa qualche richiesta che va ricordata, il server gli ritorna un cookie che andrà memorizzato sul client. la prossima volta che il client dovrà fare una richiesta, esso invierà al server anche una copia dei cookies che conserva, in modo da "personalizzare" la risposta. 
+Il meccanismo è necessario, in quanto il server non ha modo di ricordarsi del singolo utente. 
+
+---
+
+il cookie è una coppia chiave-valore, dunque ci aspettiamo che sul server venga conservato in un array associativo. 
+questo array si chiama $_COOKIE[].
+
+---
+
+l'array serve solo a leggere i cookies. per generarli o modificarli, serve una funzione specifica:
+	
+	setcookie(name, value, expire, path, domain, secure, httponly)
+
+
+significato dei parametri:
+name					chiave
+value					valore
+expire					il momento in cui scade il cookie(vedi date)
+path					sottoalbero di direttori per cui è valido il cookie(esclude livelli superiori)
+domain					dominio per cui il cookie è valido
+secure					(bool) richesto HTTPS?
+httponly				il cookie si può vedere da js? (true = no, false = sì)
+
+---
+
+per eliminare il cookie si utilizza questa funzione:
+	
+	unset();
+	
+se 'ck' è la chiave del cookie da eliminare, per eliminare il cookie si deve usare così la funzione:
+
+	unset($_COOKIE['ck']);
+	
+---
+
+il cookie non è l'unico meccanismo messo a disposizione dal PHP per ricordarsi dell'utente. esiste anche il meccanismo della sessione.
+
+---
+

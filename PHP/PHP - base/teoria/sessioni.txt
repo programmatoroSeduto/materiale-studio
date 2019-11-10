@@ -1,0 +1,50 @@
+SESSIONI
+
+meccanismo alternativo ai cookie per potersi ricordare del singolo utente nell'esecuzione dello script. a differenza dei cookie però, stavolta è il server a ricordarsi della sessione aperta con un certo client, in modo del tutto trasparente al client. ovviamente, cookie e sessioni si possono combinare insieme.
+
+---
+
+prima di poter utilizzare una sessione, bisogna dire al server di crearne una. la funzione che permette di fare questa richiesta è
+	
+	session_start()
+	
+essa prende come argomento un array, ma il più delle volte viene utilizzata senza. 
+una volta inizializzata la sessione, possiamo accedere all'array superglobale $_SESSION[] che conterrà tutti i dati riguardanti la sessione aperta con l'utente. 
+
+---
+
+si nota che dopo l'inizializzazione di una sessione, sarà disponibile un cookie chiamato PHPSESSID contentente un codice identificativo della sessione, una stringa che contraddistingue univocamente la sessione aperta con l'utente. questo valore può essere ritornato al client per poterlo richiamare alle successive richieste.
+
+volendo, si potrebbe anche usare in GET per accedere alla propria sessione:
+
+	http://test.com/?PHPSESSID=123nd12312
+	
+il metodo, per quanto accettato da php, è un grosso rischio per la sicurezza! meglio non usarlo, se non in casi particolarissimi.
+
+---
+
+per creare un dato di sessione, basta creare una nuova entry nell'array superglobale $_SESSION[] e assegnargli il valore desiderato. nulla di più semplice: la nuova locazione viene creata quando la si nomina per la prima volta.
+
+e per eliminare i dati di sessione? si usa la funzione unset() come già visto per i cookies.
+
+per una pulizia completa dell'array $_SESSION[] si usa la funzione
+	
+	session_unset()
+
+---
+
+la sessione non si mantiene in automatico al passaggio tra file php! bisogna richiedere esplicitamente di mantenere aperta la sessione. 
+come? usando la funzione session_stat() all'inizio di ogni file che richiede di mantenere aperta la sessione. la sezione di php che fa la richiesta deve comparire prima di qualunque altra cosa. 
+se una sessione già esiste, allora verrà mantenuta aperta. altrimenti, se ne aprirà una nuova.
+
+---
+
+anche se non si tiene aperta una sessione nel passaggio tra pagine, il server manterrà comunque un identificatore di sessione per quel client. come si fa a richiedere la cancellazione della sessione?
+si utilizza la funzione
+
+	session_destroy()
+	
+occhio: prima di distruggere la sessione, assicurati di aver trattato a dovere il contenuto di $_SESSION[]. solitamente si vorrebbe salvare quel contenuto su database, o su file di testo. dipende dal caso.
+
+---
+

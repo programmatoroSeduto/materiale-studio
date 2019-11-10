@@ -63,6 +63,23 @@ in PHP sono considerati falsi questi elementi:
 
 ---
 
+interessante questo modo di scrivere il costrutto if-else:
+
+<?php
+	<?php if ($error): ?>
+        <p style="color: red"><?php echo $error ?></p>
+    <?php else: ?>
+        <p><?php echo $result ?></p>
+    <?php endif ?>
+?>
+
+ovvero un costrutto può essere "distribuito". osservazioni:
+-	il blocco di istruzioni si apre sempre con i due punti
+-	il costrutto termina sempre con una keyword del tipo end<costrutto>; ad esempio, endif
+bastano queste poche regole per poter distribuire qualunque altro costrutto di controllo. questo consente di risparmiare molte righe di codice quando si devono fare delle echo con grandi quantità di markup e/o altro.
+
+---
+
 come in C, in PHP esiste il costrutto switch-case:
 
 switch ( <variabile> )

@@ -22,3 +22,8 @@ array
 funzioni
 
 include e require
+
+
+array superglobali lato server - get e post
+cookies
+sessioni

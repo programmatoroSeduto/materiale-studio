@@ -1,0 +1,37 @@
+ARRAY SUPERGLOBALI LATO SERVER - GET E POST
+
+PHP mette a disposizione degli array superglobali per interpretare le richieste HTTP, tra le altre cose.
+condizioni nelle quali uno script PHP viene avviato:
+-	il server ha ricevuto una richiesta HTTP da un client; prima dell'avvio, ha già riempito gli array superglobali usando le informazioni nella richiesta
+-	il client ha richiesto esplicitamente lo script avviato, o un altro script che ha richiamato quello attualmente in esecuzione
+il server può elaborare in parallelo diverse richieste da parte di molti utenti; per noi non è un problema: lo sviluppatore vede il server come se fosse il solo ad utilizzarlo, dunque gli array superglobali conterranno solo informazioni connesse con il client che ha inviato la richiesta. 
+
+ricorda di sanificare sempre i dati ricevuti da una richiesta HTTP! quei dati potrebbero contenere qualunque cosa, dai semplici errori che creano comportamenti inaspettati dallo script, a input malevoli. attenzione!
+
+---
+
+ci sono principalmente due metodi per inviare informazioni al server: GET e POST. 
+
+GET
+le informazioni passate con la richiesta sono visibili sull'url. quando il client fa la richiesta, la formula in modo simile a questo esempio:
+	www.miosito.com/pagina-richiesta?id=123&page=3
+osservazioni:
+-	si sta richiedendo al server la pagina /pagina-richiesta
+-	il simbolo '?' indica che allegate alla richiesta ci sono altre informazioni
+-	la richiesta porta con se due coppie chiave-valore, id con valore 123 (id=123), e page con valore 3(page=3)
+-	si usa il simbolo '&' come separatore tra coppie chiave-valore
+questa richiesta viene formulata in automatico così quando si usa il submit nel tag <form> in GET.
+
+come ritrovo queste informazioni sul server? utilizzando l'array $_GET[], associativo. esempi:
+$_GET['id']		contiene 123
+$_GET['page']	contiene 3
+
+---
+
+POST
+dal punto di vista del server, le cose vanno in maniera molto simile a quanto già detto per il metodo GET. dove trovo le informazioni inviate col metodo post? con grande sforzo di fantasia, nell'array $_POST[], anch'esso associativo.
+
+come si inviano dati in post? il client li manda al server non nell'URL, ma direttamente nella richiesta HTTP. che utilità può avere quest'accorgimento? spesso capita di non volere che certe informazioni, come ad esempio le password, si possano vedere nell'url; incorporarle nella richiesta HTTP è cioè un modo per nascondere le informazioni sensibili. 
+
+---
+
