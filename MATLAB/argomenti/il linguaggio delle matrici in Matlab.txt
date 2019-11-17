@@ -1,0 +1,122 @@
+IL LINGUAGGIO DELLE MATRICI IN MATLAB
+
+---
+
+regole di base:
+-	le "sequenze" di valori sono contenute tra parentesi quadre
+-	sulla stessa riga, un valore può essere separato dall'altro con la virgola, o semplicemente con uno spazio
+-	le righe sono separate col punto e virgola
+
+ESEMPIO:
+%{
+	MATRICE M:
+	0 1 2
+	3 4 5
+	4 3 2
+%}
+
+%usando la virgola
+M = [ 0, 1, 2; 3, 4, 5; 4, 3, 2 ]
+
+%VELOCE usando gli spazi
+M = [ 0 1 2 ; 3 4 5 ; 4 3 2 ]
+
+%usando sottomatrici
+M = [[0 1 2];[3 4 5];[4 3 2]]
+
+---
+
+è possibile individuare elementi nella matrice quali singoli valori, vettori riga, vettori colonna e sottomatrici.
+ATTENZIONE: indici a partire da 1, come vuole la convenzione dei matematici.
+
+%{
+	MATRICE M:
+	0 1 2
+	3 4 5
+	4 3 2
+%}
+M = [ 0 1 2 ; 3 4 5 ; 4 3 2 ]
+
+%elemento
+M(1, 2)
+%riga 1 colonna 2
+
+%vettore riga
+M(1, :)
+%riga 1 colonna TUTTA
+%oppure
+M(1)
+
+%vettore colonna
+M(:, 2)
+%riga TUTTE colonna 1
+
+%sottomatrici
+M([1, 2], [2, 3])
+%{
+	RISULTATO:
+	1 2
+	4 5
+%}
+%anche valori non adiacenti
+M([1, 3], [2])
+%{
+	RISULTATO:
+	1
+	3
+%}
+
+---
+
+Matlab mette a disposizione questi operandi:
++		somma
+-		sottrazione
+*		prodotto
+/		divisione
+^		elevamento a potenza
+
+si può scegliere se eseguire le operazioni sul singolo elemento o sull'intera matrice. Per eseguire sull'intera matrice, basta usare l'operatore così com'è; per eseguire su ogni termine della matrice invece, bisogna mettere un punto davanti all'operatore. 
+
+%somma matriciale
+M + [ 1 0 0 ; 0 1 0 ; 0 0 1 ]
+
+%eleva al quadrato ogni termine della matrice
+M .^ 2
+
+%matrice al quadrato
+M ^ 2
+
+%prodotto matriciale
+M * [ 1 0 0 ; 0 1 0 ; 0 0 1 ]
+
+%prodotto per uno scalare
+M .* k
+
+%prodotto di una matrice per un'inversa di matrice
+M / Q
+%calcola l'inversa di Q, poi moltiplica l'inversa con M
+
+---
+
+e se volessi la trasposta della matrice? basta mettere l'apostrofo dopo il nome della matrice!
+
+%la matrice...
+%{
+	MATRICE M:
+	0 1 2
+	3 4 5
+	4 3 2
+%}
+M = [ 0 1 2 ; 3 4 5 ; 4 3 2 ]
+
+%la sua trasposta...
+M'
+%{
+	MATRICE M':
+	0 3 4
+    1 4 3
+    2 5 2
+%}
+
+---
+

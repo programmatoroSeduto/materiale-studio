@@ -4,6 +4,9 @@ https://www.html.it/pag/16420/introduzione29/
 	ma prima, vedi meglio i comandi di git!!!
 ->	CSS: 
 https://www.html.it/pag/14221/valori-e-unit-di-misura/ 
+->	MATLAB:
+file: elaborazione di funzioni matematiche in Matlab 
+pagina dispense: 11 1.4 "graph and figures" 
 	
 NOTA(PHP): in futuro, aggiungere
 	dettagli sul foreach:
