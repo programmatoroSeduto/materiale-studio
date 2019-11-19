@@ -1,0 +1,3 @@
+MySQL e PDO 
+
+MySQL procedura di base per operare sul DB

@@ -1,0 +1,9 @@
+MYSQL - PROCEDURA DI BASE
+
+---
+
+per stabilire una connessione col DB si deve costruire un oggetto "mysqli" al quale costruttore vanno forniti i seguenti parametri nell'ordine:
+-	localhost
+-	username
+-	password
+-	nome del database

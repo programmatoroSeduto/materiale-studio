@@ -1,12 +1,15 @@
 CONTINUA DA: 
-->	PHP(inizia parte database): 
-https://www.html.it/pag/16420/introduzione29/
-	ma prima, vedi meglio i comandi di git!!!
+->	PHP: 
+https://www.html.it/pag/16424/lestensione-mysqli/
+prosegui con procedura di base mysqli;
 ->	CSS: 
-https://www.html.it/pag/14221/valori-e-unit-di-misura/ 
+https://www.html.it/pag/14221/valori-e-unit-di-misura/  
 ->	MATLAB:
-file: elaborazione di funzioni matematiche in Matlab 
-pagina dispense: 11 1.4 "graph and figures" 
+file: elaborazione di funzioni matematiche in Matlab ;
+pagina dispense: 11 1.4 "graph and figures";
+->PHP OOP (interrotto perchè inutile al momento):
+https://www.html.it/pag/18344/le-costanti3/
+
 	
 NOTA(PHP): in futuro, aggiungere
 	dettagli sul foreach:
