@@ -9,3 +9,32 @@ const <nome-bot> = new Discord.Client();
  
 //login
 <nome-bot>.login("<token-segreto>");
+
+
+
+
+
+
+---
+
+
+
+
+
+
+/*
+	importazione di discord.js e 
+	istanziazione del bot (oggetto Discord.Client)
+*/
+
+/*
+	impostazione del bot: eventi, strutture dati, ...
+*/
+
+/*
+	login bot usando il token
+*/
+
+/*
+	altre istruzioni
+*/

@@ -9,6 +9,8 @@ file: elaborazione di funzioni matematiche in Matlab ;
 pagina dispense: 11 1.4 "graph and figures";
 ->PHP OOP (interrotto perchè inutile al momento):
 https://www.html.it/pag/18344/le-costanti3/
+->	DISCORD:
+https://discordjs.guide/command-handling/#individual-command-files
 
 	
 NOTA(PHP): in futuro, aggiungere

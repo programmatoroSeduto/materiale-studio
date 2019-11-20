@@ -1,0 +1,79 @@
+NODE E JS
+
+console.log(messaggio)	
+console.err(messaggio)		//stampa un messaggio d'errore
+const <> = require('pathfile/nomefile.formatofile');	//importare un modulo
+
+.catch(funzione)			//cattura un'eccezione
+
+---
+
+ELABORAZIONE BASE DI STRINGHE E COMANDI
+
+.startsWith(stringa iniziale)	//verifica se una stringa inizia in un certo modo
+								//utile ad esempio per gestire i prefissi
+
+.slice(N)					//elimina un numero di caratteri iniziale pari a N
+
+.split(separatore)			//ricava un array di stringhe da una stringa troncando al separatore
+							//il separatore non viene incluso nell'array finale
+							//NOTA: se devi separare con spazio, usa / +/ al posto di ' '
+							
+.toLowerCase()				//riporta tutti i caratteri di una stringa in minuscolo (ritorna una copia della stringa originale)
+
+.shift()					//da un array prende il primo elemento, e lo elimina dall'array "shiftando" gli altri 
+
+---
+
+REAZIONE AD EVENTI
+classe Discord.Client
+
+.on(evento, reazione)
+.once(evento, reazione)		//reagisci una sola volta
+
+---
+
+GESTIRE I MESSAGGI 
+la classe Message rappresenta un messaggio
+
+.content			//contenuto del messaggio
+.channel			//il canale(oggetto) dove è stato inviato il messaggio
+.guild				//il server(oggetto) dentro il quale è stato inviato il messaggio
+.author				//l'utente(oggetto) che ha spedito il messaggio
+.mention.users		//ritorna una collezione di utenti menzionati se ce ne sono, altrimenti undefined
+					//vedi oggetto collection
+.mentions.users.size		//quanti utenti sono stati menzionati nel messaggio
+.mentions.users.first()		//ritorna il primo utente menzionato (come shift)
+.mentions.users.map(funct)	//esegui una certa operazione su tutti gli elementi della collezione
+							//vedi altri modi per implementare un ciclo for
+
+.reply(messaggio)	//rispondi con un messaggio (include anche il riferimento a chi ha inviato il messaggio)
+
+---
+
+UTENTI
+oggetto User
+
+.username			//nome (su discord) dell'utente
+.id					//id utente
+.bot				//l'autore del messaggio è un bot?
+					//ESTREMAMENTE UTILE per evitare cicli infiniti
+					//un bot non dovrebbe rispondere ai suoi stessi messaggi
+
+---
+
+CANALI
+oggetto Channel
+
+.send(messaggio)		//invia un messaggio nel canale
+.bulkDelete(N, bool)	//elimina un certo numero di messaggi
+						//se si imposta il bool a true, verranno eliminati solo i messaggi più vecchi di due settimane
+						//usare .bulkDelete().catch()
+
+---
+
+SERVER
+oggetto Guild
+
+.name					//nome del server
+.memberCount			//numero di utenti che hanno accesso al server

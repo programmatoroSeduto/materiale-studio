@@ -1,0 +1,36 @@
+GESTIRE LE INFORMAZIONI
+
+---
+
+può essere utile conservare le informazioni utili al bot in file separati dal codice. qui usiamo il formato json.
+importare un file in formato json:
+
+const <nome-oggetto> = require("<nome-file-json>.json");
+
+ad esempio,
+
+const config = require("./config.json");
+
+dopo questa istruzione, nel codice posso richiamare le informazioni nel file json usando semplicemente la sintassi col punto, come fosse una classe:
+
+config.<chiave>
+
+---
+
+ecco alcuni "trucchetti" sintattici:
+
+require(<file-json>).<campo>		//restituisce il valore di una delle chiavi nel file json se esiste
+const { ... , name-k , ... } = require(<file-json>);		//come la precedente
+															//ma con più campi nella stessa istruzione
+															
+const [... , name-k , ...] = require(<file-json>).<campo-array>
+
+---
+
+per usare i valori dei file json nelle stringhe senza utilizzare per forza concatenazioni enormi? usa questa sintassi:
+
+"questa stringa contiene il valore ${<var>}"
+
+il contenuto delle graffe può essere una qualunque variabile; al momento giusto, il valore verrà convertito e inserito nella stringa.
+
+---

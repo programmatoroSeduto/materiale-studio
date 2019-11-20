@@ -19,3 +19,9 @@ scrivi il codice...
 
 ---
 
+5.
+avvia lo script da node.js ; NOTA IMPORTANTE: il bot è online fin quando l'applicazione rimane in funzione sulla macchina.
+se hai già incluso il bot nel server, questo basta. altrimenti segui anche il passo 6.
+
+6.
+vai sull'area sviluppatori->applicazione->Oauth2 , scegli 'bot' nella sezione scope, genera e copia il link, incollalo nella barra indirizzi del browser (usa un'altra scheda) e scegli il server nel quale aggiungere il bot (devi essere amministratore di un server per poter aggiungere un bot)
