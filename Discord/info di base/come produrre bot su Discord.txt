@@ -1,5 +1,5 @@
 1.
-sito per sviluppatori:
+area sviluppatori:
 	https://discordapp.com/login?redirect_to=%2Fdevelopers
 da qui, crea una app	->new application
 inserisci tutte le informazioni sull'applicazioni discord
@@ -15,3 +15,7 @@ crea una workspace in locale; apri cmd in quel percorso e installa Discord.js:
 	npm i discord.js
 	
 4.
+scrivi il codice...
+
+---
+

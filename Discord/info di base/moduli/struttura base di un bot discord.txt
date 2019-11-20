@@ -1,0 +1,11 @@
+//caricamento della libreria discord.js
+const Discord = require("discord.js");
+
+//istanziazione del bot
+const <nome-bot> = new Discord.Client();
+
+//reazione ad un evento 
+<nome-bot>.on("<evento>", (<args>) => {<corpo-funzione>});
+ 
+//login
+<nome-bot>.login("<token-segreto>");
