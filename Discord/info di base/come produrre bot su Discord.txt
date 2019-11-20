@@ -1,0 +1,17 @@
+1.
+sito per sviluppatori:
+	https://discordapp.com/login?redirect_to=%2Fdevelopers
+da qui, crea una app	->new application
+inserisci tutte le informazioni sull'applicazioni discord
+nota: per caricarlo vedi https://github.com/jagrosh/MusicBot/wiki/Adding-Your-Bot-To-Your-Server
+
+2.
+crea un bot: sezione bot->build-a-bot->add bot; inserisci tutte le informazioni sul bot
+
+---
+
+3.
+crea una workspace in locale; apri cmd in quel percorso e installa Discord.js:
+	npm i discord.js
+	
+4.
