@@ -1,7 +1,4 @@
 CONTINUA DA: 
-->	PHP: 
-https://www.html.it/pag/57265/mysqli-inserimento-e-lettura-dei-record/
-prosegui con procedura di base mysqli;
 ->	SQL:
 https://www.w3schools.com/sql/default.asp 
 prosegui con le query e con l'inserimento di tuple nelle tabelle

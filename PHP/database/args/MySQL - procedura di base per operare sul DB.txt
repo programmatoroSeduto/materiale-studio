@@ -51,5 +51,29 @@ eventualmente si può anche sfruttare così il booleano ritornato dalla funzione
 if(!$mysqli->query("SQL command"))
 	die("errore!");
 	
+campi utili per capire quali e quante righe di una tabella sono state modificate da query:
+->affected_rows						il numero di righe intressate dall'ultima query
+->num_rows							quante righe sono state ritornate dalla query
+	
+---
+
+come ritrovare i risultati di una query?
+
+->fetch_all(?)						produce un array di record
+	parametro:
+		MYSQLI_NUM		array numerico
+		MYSQLI_ASSOC	array associativo
+		MYSQLI_BOTH		
+
+---
+
+è sconsigliato usare il metodo query() per eseguire le query nel db, a meno di non essere arcisicuri di ciò che si sta facendo. nel caso comune, meglio usare i prepared statement per eseguire le query.
+
+---
+
+come chiudere una connessione col database? si usa il metodo
+
+->close()
+
 ---
 

@@ -1,3 +1,6 @@
 MySQL e PDO 
 
-MySQL procedura di base per operare sul DB
+tecniche per l'hashing di password
+MySQL - procedura di base per operare sul DB
+MySQL - prepared statements
+
