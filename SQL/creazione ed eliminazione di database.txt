@@ -1,0 +1,25 @@
+creazione di un database:
+
+CREATE DATABASE <nome database>;
+
+---
+
+eliminazione di un database:
+
+DROP DATABASE <nome database>;
+
+---
+
+backup di un database:
+
+BACKUP DATABASE <nome db>
+TO DISK = '<path>';
+
+backup con differenziale, ovvero copia solo le ennuple modificate dall'ultimo backup:
+
+BACKUP DATABASE <databasename>
+TO DISK = '<filepath>'
+WITH DIFFERENTIAL;
+
+---
+

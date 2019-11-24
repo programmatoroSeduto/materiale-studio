@@ -3,7 +3,53 @@ MYSQL - PROCEDURA DI BASE
 ---
 
 per stabilire una connessione col DB si deve costruire un oggetto "mysqli" al quale costruttore vanno forniti i seguenti parametri nell'ordine:
--	localhost
+-	indirizzo della macchina che ospita il db (ad esempio localhost)
 -	username
 -	password
 -	nome del database
+si accederà al db passando sempre dai metodi dell'oggetto istanziato.
+
+<?php
+	$dataBase = new mysqli('localhost', 'my-user', 'my-psw', 'db');
+?>
+
+---
+
+come si fa a capire se la connessione è andata bene? così:
+
+<?php
+	//tento di creare la connessione
+	$mysqli = new mysqli('localhost', 'username', 'password', 'nome_database');
+	
+	//controllo com'è andata
+	if ($mysqli->connect_error) 
+	{
+		die('Errore di connessione (' . $mysqli->connect_errno . ') '
+		. $mysqli->connect_error);
+	} 
+	else 
+	{
+		echo 'Connesso. ' . $mysqli->host_info . "\n";
+	}
+?>
+
+metodi e campi utili per il controllo:
+->connect_error					c'è stato un errore?
+->connect_errno					codice di errore
+die(<messaggio di errore>)		termina lo script ritornando un certo messaggio di errore
+->host_info						informazioni sulla connessione
+
+---
+
+ora che siamo connessi al dbms, come utilizzarlo? primo metodo:
+
+$mysqli->query("SQL command");
+
+restituisce true o false a seconda che l'operazione abbia avuto o no successo.
+eventualmente si può anche sfruttare così il booleano ritornato dalla funzione:
+
+if(!$mysqli->query("SQL command"))
+	die("errore!");
+	
+---
+
