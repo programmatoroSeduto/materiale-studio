@@ -1,0 +1,11 @@
+REGOLE SINTATTICHE DI BASE
+
+1.
+linguaggio non case-sensitive: le keyword si possono scrivere sia in maiuscolo che in minuscolo. 
+
+2.
+ogni istruzione SQL termina con punto e virgola.
+
+3.
+almeno per quanto riguarda le query, SQL è fondamentalmente un linguaggio dichiarativo: descrive come dev'essere fatto il risultato, e non come arrivare ad esso.
+

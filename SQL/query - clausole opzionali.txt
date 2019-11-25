@@ -1,0 +1,29 @@
+QUERY SQL - CLAUSOLE OPZIONALI
+
+---
+
+queste clausole, poste dopo il WHERE, servono ad esprimere operazioni sulle ennuple della tabella da eseguire dopo aver terminato la ricerca. come si inseriscono? semplicemente si "estende" l'istruzione:
+
+SELECT <>
+FROM <>
+WHERE <>
+...altre clausole... ;
+
+---
+
+la clausola ORDER BY serve a riordinare i risultati in ordine ascendente o discendente; opera facendo riferimento ad alcune colonne specifiche. ad esempio, "ordina il risutato rispetto ai nomi delle città in senso decrescente", questo è il significato della clausola.
+
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+nota bene. ASC è il valore di default; può essere omesso.
+ecco un utilizzo un po' "estremo" della clausola:
+
+SELECT * FROM Customers
+ORDER BY Country ASC, CustomerName DESC;
+
+esegue due ordinamenti in sequenza: il primo rispetto a "Country", il secondo rispetto a "CustomerName".
+
+---
+

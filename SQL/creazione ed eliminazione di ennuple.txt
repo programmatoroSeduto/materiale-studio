@@ -1,0 +1,39 @@
+CREAZIONE ED ELIMINAZIONE DI ENNUPLE
+
+---
+
+per inserire ennuple si utilizza questa istruzione SQL:
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+oppure, più semplicemente, 
+
+INSERT INTO table_name
+VALUES (value1, value2, value3, ...);
+
+leggi "inserisci nella tabella tot (con tot colonne) questa ennupla". ovviamente l'inserimento andrà a buon fine solo se i valori soddisfano i vincoli di integrità; altrimenti il compilatore ritornerà errore.
+è permesso inserire un valore per tutti gli attributi dello schema della tabella, oppure solo alcuni attributi specifici; quelli non dati avranno valore NULL durante l'inserimento. anche qui, l'inserimento deve soddisfare il vincolo di integrità, dunque saranno permessi solo alcuni inserimenti "selettivi" e non altri.
+
+---
+
+aggiornamento dei valori delle ennuple con UPDATE:
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+ecco il funzionamento. il compilatore di query scandisce tutte le ennuple, una ad una; se l'ennupla originale soddisfa la condizione nella clausola WHERE, allora viene aggiornata usando i valori nella clausola SET. è possibile aggiornare tutti i valori, oppure solo qualche attributo.
+
+nota: se si omette la clausola WHERE, saranno aggiornate tutte le ennuple della tabella.
+
+---
+
+per eliminare le ennuple:
+
+DELETE FROM table_name WHERE condition;
+
+elimina tutte le ennuple che soddisfano la condizione nel WHERE.
+
+---
+

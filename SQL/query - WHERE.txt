@@ -1,0 +1,58 @@
+QUERY SQL - WHERE
+
+---
+
+la clausola WHERE riporta una condizione che le ennuple devono soddisfare per essere incluse nel risultato. si tratta di una clausola opzionale: quando non serve, può essere omessa. in questi casi, il valore della condizione è la costante "true".
+
+SELECT <>
+FROM <>
+WHERE condizione
+
+dove per condizione si intende la solita ben nota forma per le condizioni logiche. ecco gli operatori:
+
+<		
+<=
+>
+>=
+=											uguaglianza(solo per valori diversi da NULL)
+<> (oppure != in alcune versioni di SQL)	diverso da(vedi =)
+
+AND
+OR 
+NOT
+
+IS NULL
+IS NOT NULL
+
+chi sono gli operatori della condizione logica? gli attributi della select, usando l'alias oppure direttamente il nome originale.
+occhio all'ordine degli operatori logici! utilizza le parentesi.
+
+nota bene. per indicare valori stringa si usano i singoli apici come al solito.
+
+---
+
+ci sono anche altri operatori molto utili. uno è LIKE che prende in argomento un'espressione regolare:
+
+LIKE pattern
+
+oppure
+
+NOT LIKE pattern
+
+il pattern è una stringa, quindi compare sempre tra singoli apici. ecco alcune regole sintattiche del pattern:
+
+...%		seguono altri caratteri, non importa quali
+%...		inizia con un po' di caratteri, non importa quali, poi continua
+_...		inizia con un carattere indeterminato
+..._		segue un solo carattere indeterminato
+
+alcuni esempi:
+
+'a%'			tutte le stringhe che iniziano per 'a'
+'%a'			tutte le stinghe che terminano per 'a'
+'%abc%'			tutte le stringhe che contengono la sequenza 'abc'
+'___abc%'		tutte le stringhe che, dopo i primi 3 caratteri, proseguono con la sequenza 'abc' e terminano con un certo numero di caratteri indeterminati. ad esempio, è accettata la stringa 'cccabcaaaaaaaaaaaaaaa', mentre non sono accettate 'ccabcaaaaa' o 'cccabaaaaaaaaaaaaaa'.
+
+---
+
+

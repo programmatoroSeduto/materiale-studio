@@ -1,0 +1,70 @@
+QUERY SQL - SELECT
+
+---
+
+ogni query in SQL ha una forma fissa:
+
+SELECT <> FROM <> WHERE <> ;
+
+tutto il costrutto è un'unica istruzione: cerca le tuple che rispettano una qualche condizione. l'istruzione ritorna una tabella non persistente, con un certo schema e un certo contenuto.
+SELECT è la sezione che descrive lo schema della tabella; FROM dice da dove prendere le tuple che andranno a popolare il risultato; WHERE è la condizione che dev'essere soddisfatta dalle tuple nelle tabelle di FROM per essere comprese nel risultato. 
+certe volte si può omettere WHERE; in tal caso, la condizione è "true" costante.
+
+---
+
+forma della clausola SELECT:
+
+SELECT attr-1 , attr-2 , ... , attr-n 
+FROM <> 
+WHERE <> ;
+
+dove gli attr-j sono gli attributi della tabella risultato. vediamo la forma di ogni singolo attr-j e il suo significato.
+certe volte si usa l'asterisco :
+
+SELECT * 
+FROM <> 
+WHERE <> ;
+
+al posto della lista, per dire che vanno presi tutti gli attributi dalle tabelle di partenza. 
+
+---
+
+un attr-j è una colonna effettivamente presente nelle tabelle del FROM. si possono rinominare così:
+
+attr-j AS alias-j
+
+in questo modo, nella tabella risultato la colonna non avrà il nome attr-j, ma alias-j.
+può capitare che il nome attr-j sia presente in più tabelle; per indicare esplicitamente la fonte, si usa la dot notation:
+
+tabella.attr-j
+
+che a sua volta può essere rinominato:
+
+tabella.attr-j AS alias-j
+
+---
+
+SELECT ammette diversi modificatori. uno è DISTINCT: dice di selezionare solo i valori non ancora presenti nel risultato durante la ricerca; in altre parole, seleziona una votla sola gli elementi che soddisfano la clausola WHERE.
+
+SELECT DISTINCT <>
+FROM <> 
+WHERE <> ;
+
+---
+
+prendere direttamente la proiezione della colonna non è il solo modo per generare valori in una colonna. SQL mette a disposizione funzioni che ritornano colonne di valori; si usano come gli attr-j. ad esempio, il risultato di una funzione di conteggio viene qui rinominato:
+
+SELECT COUNT(DISTINCT Country) AS Countries FROM Customers;
+
+nota l'uso del DISTINCT ad argomento della funzione.
+ecco un po' di funzioni utili; nota, i nomi delle funzioni sono case-sensitive:
+
+COUNT(attr-1, attr-2, ...)
+MIN(col)	minimo tra i valori
+MAX(col)	massimo tra i valori
+AVG(col)	media di tutti i valori
+SUM(col)	somma di tutti i valori nella colonna
+
+
+---
+

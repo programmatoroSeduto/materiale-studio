@@ -1,7 +1,8 @@
 CONTINUA DA: 
 ->	SQL:
-https://www.w3schools.com/sql/default.asp 
-prosegui con le query e con l'inserimento di tuple nelle tabelle
+https://www.w3schools.com/sql/sql_wildcards.asp
+continua clausola WHERE sezione LIKE; 
+sistemare la lista di argomenti SQL
 ->	CSS: 
 https://www.html.it/pag/14221/valori-e-unit-di-misura/  
 ->	MATLAB:
