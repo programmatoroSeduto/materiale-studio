@@ -1,5 +1,5 @@
 Il selettore serve a definire quale parte della pagina venga influenzata dalla dichiarazione.
-es.: h1 {color: red;} agirà sull'elemento h1 cambiando il colore in bianco.
+es.: h1 {color: red;} agirà sull'elemento h1 cambiando il colore in rosso.
 
 Selettore universale: '*'.
 Influenza tutti gli elementi della pagina.
