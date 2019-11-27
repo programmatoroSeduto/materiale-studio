@@ -86,10 +86,51 @@ FROM <>
 WHERE attr IN (query)
 
 dove la query tra parentesi è proprio un'altra query SQL. query innestate.
-not bene. IN e NOT IN sono condizioni logiche, dunque possono essere combinate con gli operatori AND e OR:
+nota bene. IN e NOT IN sono condizioni logiche, dunque possono essere combinate con gli operatori AND e OR. ad esempio,
 
 SELECT <>
 FROM <>
-WHERE condizione
+WHERE (attr IN (?)) OR (attr IN (?))
 
 ---
+
+altri operatori che possono richiedere query innestata?
+
+EXISTS			vera se il risultato appare nella tabella ad argomento
+NOT EXISTS		il contrario di EXISTS
+
+ci sono poi altri operatori: ANY e ALL. questi sono particolari, perchè permettono di inserire una subquery direttamente ad argomento di un operatore. ecco la sintassi:
+
+SELECT <>
+FROM <>
+WHERE col op ANY/ALL (tabella);
+
+ANY ritorna true se esiste almeno un elemento capace di soddisfare quella condizione; ALL ritorna false solo se esiste almeno un elemento che non rispetta quella condizione.
+esempio:
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+
+se esiste un elemento che ha lo stesso ProductID allora la condizione è vera.
+
+---
+
+un operatore più utile di quello che si potrebbe pensare è il BETWEEN:
+
+
+SELECT <>
+FROM <>
+WHERE col BETWEEN v1 AND v2
+
+perchè può essere molto utile? perchè permette di risolvere con una semplice istruzione cose che con le normali condizioni logiche sarebbero macchinose da implementare. ad esempio, questa:
+
+SELECT * 
+FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+
+ovviamente, esiste anche la versione NOT BETWEEN, con analoga sintassi.
+
+---
+

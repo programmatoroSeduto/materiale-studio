@@ -1,0 +1,44 @@
+TIPI DI DATO SQL
+
+---
+
+tipi stringhe:
+
+CHAR(N)				sequenza di N caratteri di dimensione fissa
+VARCHAR(N)			sequenza di N caratteri di dimensione variabile
+TEXT(size)			testo da massimo 65535 bytes
+
+---
+
+numerici e sempici:
+
+BIT(N)				un certo numero di bit
+BOOL				booleano
+
+INT					un intero
+FLOAT(size, prec)	un numero reale con una certa precisione dopo la virgola
+DOUBLE(size, prec)
+
+tutti i tipi numerici hanno l'opzione aggiuntiva
+UNSIGNED			tipo senza segno
+
+---
+
+date:
+
+DATE				data, in qualunque formato
+TIME('format')		orario; formato del tipo 'hh:mm:ss' oppure 'ss:hh:mm' o qualunque altra cosa
+
+---
+
+enumeratori e altri tipi a valori vincolati:
+
+ENUM(v1, v2, ...)	l'attributo può contenere solo uno tra i valori elencati tra parentesi
+SET(v1, v2, ...)
+
+---
+
+tipi binari:
+
+BLOB(size)			binary large object, per dati più grandi di 65,535 bytes
+TINYBLOB(size)		massimo 255 bytes

@@ -9,3 +9,13 @@ ogni istruzione SQL termina con punto e virgola.
 3.
 almeno per quanto riguarda le query, SQL è fondamentalmente un linguaggio dichiarativo: descrive come dev'essere fatto il risultato, e non come arrivare ad esso.
 
+---
+
+commenti SQL:
+
+--questo è un commento inline
+
+/*
+	questo è un commento
+	su più righe
+*/

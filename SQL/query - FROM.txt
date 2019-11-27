@@ -1,0 +1,57 @@
+QUERY SQL - CLAUSOLA FROM
+
+---
+
+nella clausola FROM si trova la lista delle tabelle da cui prendere le ennuple. in generale, si esegue la query sul prodotto cartesiano tra tutte le tabelle presenti.
+
+SELECT <>
+FROM tab-1, tab-2, ..., tab-n
+WHERE <>
+
+ogni tab-j ammette un alias, nella forma 
+
+tab-j AS alias-tab-j 
+
+proprio come accadeva per la clausola SELECT.
+
+---
+
+oltre al semplice prodotto cartesiano, c'è l'operzione di JOIN. SQL mette a disposizione 4 tipi di join:
+-	INNER JOIN
+-	LEFT JOIN
+-	RIGHT JOIN
+-	FULL JOIN
+i comandi SQL sono scritti proprio così, e seguono questa sintassi:
+
+SELECT <>
+FROM tab-1 ? JOIN tab-2 ON tab-1.attr = tab-2.attr
+WHERE <>;
+
+o anche, più precisamente,
+
+SELECT column_name(s)
+FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name
+WHERE <>;
+
+la tabella prodotta dall'operazione di JOIN è una tra le tabelle disponibili; per avere come fonti anche altre tabelle basta separare con la virgola le varie tabelle così come si faceva per gli attributi in SELECT. e ovviamente, posso anche assegnare un alias ad una tabella prodotta con l'operatore di join.
+
+MA CHE DIAVOLO E' UN JOIN?
+
+iniziamo a parlare del'inner join. siano due tabelle:
+
+TAB1(A, B, C)
+TAB2(C, D, E)
+
+nota che hanno un attributo in comune (sono in relazione usando una chiave esterna). l'inner join lavora così:
+-	prendo una ennupla dalla tabella 1 e un'altra dalla tabella 2
+-	se l'attributo C ha lo stesso valore in entrambe le ennuple, inserisco la ennupla nel risultato TAB3(A, B, C, D, E); altrimenti, la scarto.
+faccio questo lavoro per tutte le possibili combinazioni di ennuple (nota: si comporta quasi come il prodotto cartesiano dato che in effetti deriva proprio dal prodotto cartesiano).
+
+left join conserva le ennuple della prima tabella; right join conserva quelle nella seconda; full join è praticamente il prodotto cartesiano tra le tabelle, nessuna ennupla viene scartata.
+
+---
+
+e se dovessi lavorare col prodotto cartesiano di una tabella per se stessa? non è possibile avere due tabelle identiche nella clausola FROM, serve poter distinguere le tabelle in qualche modo. per questo si usano gli alias: due tabelle con origine uguale ma alias diversi sono considerate come due tabelle diverse.
+
+---
+

@@ -9,6 +9,8 @@ FROM <>
 WHERE <>
 ...altre clausole... ;
 
+nota: a differenza dei costrutti di base del linguaggio, questi funzionano in maniera SEQUENZIALE: è importante l'ordine in cui vengono posizionati.
+
 ---
 
 la clausola ORDER BY serve a riordinare i risultati in ordine ascendente o discendente; opera facendo riferimento ad alcune colonne specifiche. ad esempio, "ordina il risutato rispetto ai nomi delle città in senso decrescente", questo è il significato della clausola.
@@ -24,6 +26,60 @@ SELECT * FROM Customers
 ORDER BY Country ASC, CustomerName DESC;
 
 esegue due ordinamenti in sequenza: il primo rispetto a "Country", il secondo rispetto a "CustomerName".
+
+---
+
+altra clausola utile per riordinare i risultati, GROUP BY che opera un raggruppamento per valore:
+
+(QUERY)
+GROUP BY attr-1, attr-2, ...
+
+dove gli attr-j sono attributi dello schema risultato della query.
+
+---
+
+nota bene: nel WHERE non si possono utilizzare le funzioni aggregate! per risolvere questo problema, si introduce una clausola HAVING di significato praticamente analogo al WHERE, nella quale però si possono utilizzare anche le aggregate functions.
+
+SELECT <>
+FROM <>
+WHERE <>
+HAVING condizione;
+
+essendo una clausola aggiuntiva rispetto alla base della query, la HAVING si può inserire ovunque dopo la query.
+
+---
+
+ecco una clausola che va ad inserirsi nella query di base: INTO,
+
+SELECT <>
+INTO newtable
+FROM oldtable
+WHERE <>;
+
+oppure
+
+SELECT <>
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE <>;
+
+esegue la query, e copia il risultato da ritornare in un'altra tabella, eventualmente posta in un altro database. attenzione alla compatibilità.
+
+c'è anche un altro modo di fare lo stesso lavoro:
+
+INSERT INTO table2
+SELECT * FROM table1
+WHERE condition;
+
+prende i risultati della query e li copia in un'altra tabella, eventualmente creando una nuova tabella.
+esiste anche una versione "selettiva" di questa istruzione:
+
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+
+tutti i campi non precisati avranno valore NULL.
 
 ---
 
