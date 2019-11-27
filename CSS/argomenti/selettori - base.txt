@@ -1,0 +1,26 @@
+Il selettore serve a definire quale parte della pagina venga influenzata dalla dichiarazione.
+es.: h1 {color: red;} agirà sull'elemento h1 cambiando il colore in rosso.
+
+Selettore universale: '*'.
+Influenza tutti gli elementi della pagina.
+es.: * {color: red;}
+
+Selettore per tipo
+Influenza tutti gli elementi del tipo scelto.
+es.: h1 {color: red;} agirà solo sugli elementi di h1.
+es.: p {background-color: green;} fornirà a tutti gli elementi p uno sfondo verde.
+Risulta utile raggruppare i selettori di tipo nel seguente modo, per rendere più snello il codice:
+es.: h1 {color: red;}		
+     h2 {color: red;}	===>	h1, h2, h3 {color: red;}
+     h3 {color: red;}
+
+Classi e Id
+Il selettore per classi influenza tutti gli elementi della classe scelta. Avrò la mia regola CSS nel mio foglio di stile, mentre nel file HTMl avrò il mio elemento della classe scelta.
+es.: .classe {color: red; background-color: green;} (nel foglio di stile) <div class "classe">...</div> (nel file HTML)
+Alternativamente, è possibile dichiarare una classe e vincolarla ad uno specifico tipo.
+es.: p.classe {color: red;} influenzerà solamente i paragrafi p dotati di classe 'classe'
+Infine, è possibile definire classi multiple.
+es.: p.classe1.classe2 {color: red; background-color: green;} influenzerà solamente i paragrafi p dotati di classe "classe1" e "classe", in qualsiasi ordine siano scritte.
+
+Il selettore per Id opera nel seguente modo:
+es.: #titolo {color: red;} verrà influenzato così solamente l'elemento con codice Id corrispondente a '#titolo'.
