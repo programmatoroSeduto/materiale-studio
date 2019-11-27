@@ -55,4 +55,41 @@ alcuni esempi:
 
 ---
 
+LIKE ammette anche le più comuni espressioni regolari. ecco alcuni elementi sintattici:
 
+*		zero o più caratteri prima/dopo(o anche %)
+		ES:		*br*	braille		ebbro 	braccio	...
+?		un SINGOLO carattere qualunque (o anche _)
+		ES:		?a?		lal		NON ACCETTATA: lala o alal
+[]		un insieme di caratteri
+		ES:		h[aeiou]t	hat	het	hit	hot	hut 	NON ACCETTATA: hrt hor oot
+[ - ]	uno dei caratteri nel range di valori
+		ES:		[a-k]	ACCETTA tutte le stringhe di un solo carattere tra a minuscola e k minuscola (vedi ASCII)
+[! ]	non questi caratteri! (o anche [^ ])
+		es:		?[!a]*	ACCETTATA: tergicristallo	NON ACCETTATA: targicristallo
+#		un carattere numerico
+		ES:		a#a		ACCETTATA:	a1a a2a a3a a4a a5a ... a9a		NON ACCETTATA: a10a aaa
+		
+---
+
+altro operatore: IN, oppure NOT IN
+
+SELECT <>
+FROM <>
+WHERE attr IN (v1, v2, ..., vn)
+
+dove vj sono valori particolari che potrebbe assumere l'attributo. quando sono stringhe, si scrivono tutte tra singoli apici!
+altro formato:
+
+SELECT <>
+FROM <>
+WHERE attr IN (query)
+
+dove la query tra parentesi è proprio un'altra query SQL. query innestate.
+not bene. IN e NOT IN sono condizioni logiche, dunque possono essere combinate con gli operatori AND e OR:
+
+SELECT <>
+FROM <>
+WHERE condizione
+
+---
