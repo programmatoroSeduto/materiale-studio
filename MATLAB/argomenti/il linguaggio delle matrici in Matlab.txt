@@ -26,6 +26,25 @@ M = [[0 1 2];[3 4 5];[4 3 2]]
 
 ---
 
+come aere le dimensioni della matrice? si usa la funzione
+
+size(matrice)
+
+che restituisce un array di due valori: il primo è il numero di righe, mentre il secondo è il numero di colonne. 
+come si fa a dare un nome a questi due parametri?
+
+[righe colonne] = size(matrice)		%doppia assegnazione!
+
+purtroppo non si può avere uno solo dei due valori; ecco come si potrebbe risolvere il problema:
+
+%voglio solo le righe
+sz=size(matrice);sz=sz(1);
+
+%voglio solo le colonne
+sz=size(matrice);sz=sz(2);
+
+---
+
 è possibile individuare elementi nella matrice quali singoli valori, vettori riga, vettori colonna e sottomatrici.
 ATTENZIONE: indici a partire da 1, come vuole la convenzione dei matematici.
 

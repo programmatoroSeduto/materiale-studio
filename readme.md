@@ -6,8 +6,8 @@ sistemare la lista di argomenti SQL
 ->	CSS: 
 https://www.html.it/pag/14221/valori-e-unit-di-misura/  
 ->	MATLAB:
-file: elaborazione di funzioni matematiche in Matlab ;
-pagina dispense: 11 1.4 "graph and figures";
+file: plot di funzioni;
+cntinua da pagina 12 informazioni aggiuntive per il plot di funzioni
 ->PHP OOP (interrotto perchè inutile al momento):
 https://www.html.it/pag/18344/le-costanti3/
 ->	DISCORD:

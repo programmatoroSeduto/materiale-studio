@@ -2,3 +2,34 @@ ELABORAZIONE DI FUNZIONI MATEMATICHE IN MATLAB
 
 ---
 
+tipica chiamata a funzione in matlab:
+
+[output1, output2, ...] = function_name(input1, input2, ...)
+
+si nota subito che le funzioni Matlab possono avere più valori di ritorno, non uno solo! in alternativa,
+
+rt =  = function_name(input1, input2, ...)
+
+chiamata a funzione tradizionale: rt è in generale un vettore di valori. la prima sintassi permetteva di dare nomi precisi a tutti i campi del vettore ritornato dalla funzione, mentre la seconda memorizza un vettore semplicemente.
+NOTA BENE: la prima sintassi creerà N variabili, mentre la seconda creerà solo un valore che contiene la matrice.
+
+---
+
+rappresentiamo in Matlab una funzione matematica come un vettore di valori generato campionando in qualche modo la funzione continua originale. le funzioni Matlab matematiche hanno nomi convenzionali:
+
+sin()
+cos()
+tg()
+log()	%logaritmo naturale
+sqrt()	%radice quadrata
+
+male che vada, una ricerchina su Google e tutto si sistema.
+tutte queste funzioni prendono in generale in ingresso un vettore riga di valori. ad esempio,
+
+log([1 2 3 4 5 6 7 8 9 10 11 12 11 10 9 8 7 6 5 4 3 2 1])
+
+e ritornano un vettore riga con tanti elementi quanti quelli contenuti nel vettore ad argomento.
+queto è quanto sull'elaborazione di funzioni. ora non rimane che rappresentarle.
+
+---
+

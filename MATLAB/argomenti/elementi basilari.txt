@@ -34,5 +34,7 @@ ottenere aiuto su una certa funzione di libreria?
 
 help <funzione>
 
+nota bene. ogni volta che cerchi una funzione su console, Matlab fornisce anche link alla documentazione di funzioni correlate con quella che stai cercando; è un ottimo strumento per cercare qualcosa che assomiglia ma di cui non si conosce il nome preciso.
+
 ---
 

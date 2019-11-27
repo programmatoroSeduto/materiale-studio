@@ -37,7 +37,11 @@ può essere un numero "reale":
 vv = 0.5
 vv = 0.005e-64		%notazione scientifica
 
-può essere anche una matrice. Ecco la sintassi per le matrici:
+può essere anche un numero complesso:
+
+vv = 1 + i			% 'i' unità immaginaria
+
+o anche una matrice, a valori reali o complessi. Ecco la sintassi per le matrici:
 -	le "sequenze" di valori sono contenute tra parentesi quadre
 -	sulla stessa riga, un valore può essere separato dall'altro con la virgola, o semplicemente con uno spazio
 -	le righe sono separate col punto e virgola

@@ -7,6 +7,9 @@ matrice inversa:								inv(M)
 
 autovalori della matrice:						eig(M)
 	ritorna un vettore colonna di numeri reali/complessi
+	
+matrice diagonale:								diag(M)
+	ritorna la matrice diagonalizzata, se possibile
 
 ---
 
@@ -33,4 +36,21 @@ NOTA: come distribuirli random tra v1 e v2? così:
 R = ( rand(m, n) .* v2 - v1 ) + v1
 
 genera una matrice di m righe e n colonne di soli numeri reali randomici.
+
+---
+
+ecco funzioni utili per ricercare valori particolari a partire da una matrice:
+media algebrica dei valori di un vettore colonna:			mean(vettore)
+	...di un vettore colonna:								mean(matrice)
+		ritorna un vettore riga di risultati, un risultato per colonna
+	
+massimo valore:									max(colonna)
+												max(matrice)
+		stesso funzionamento di mean()
+		
+minimo valore:									min(colonna)
+												min(matrice)
+		stesso funzionamento di mean()
+		
+---
 

@@ -1,0 +1,40 @@
+PLOT DI FUNZIONI
+
+---
+
+una delle funzionalità più importanti di matlab: rappresentare i grafici. per rappresentarli, basta conoscere le funzioni fondamentali e come le funzioni vengono rappresentate in Matlab.
+
+plot(vett-a, vett-b)
+
+la funzione prende in argomento due vettori DI STESSA LUNGHEZZA.
+e per disegnare due grafici sovrapposti? allora devo riunire le funzioni da rappresentare in una matrice: ogni riga di questa matrice sarà una funzione tra quelle da rappresentare.
+
+plot(vettore, matrice)
+
+nota: ogni volta che uso plot, viene prima cancellato il vecchio grafico, poi rappresentato quello nuovo. ad esempio, 
+
+plot(x, f1);plot(x, f2);
+
+nel grafico comparirà solo f2. mentre facendo così,
+
+plot(x, [f1; f2])
+
+entrambele funzioni verranno rappresentate nel grafico, sovrapposte e con colori diversi.
+c'è anche un altro modo per avere più grafici nella stessa figura:
+
+plot(x, f1);
+hold on;
+plot(x, f2);
+hold off;
+
+è possibile gestire lo stile della curva di grafico usando la funzione plot in questo modo:
+
+plot(vett-a, vett-b, 'opt')
+
+vedi lista di opzioni di Matlab, e ricorda sempre i singoli apici: l'ultimo argomento è una stringa!
+nota bene. se vett-b è in realtà una matrice, tutte le curve avranno lo stesso stile.
+
+---
+
+usare solo plot consente di creare solo grafici un po' scarni. solitamente si vorrebbe avere anche informazione di più sul grafico. ecco alcune funzioni utili per inserirle:
+
