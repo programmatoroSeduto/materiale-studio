@@ -8,8 +8,6 @@ https://www.html.it/pag/14221/valori-e-unit-di-misura/
 ->	MATLAB:
 file: plot di funzioni;
 cntinua da pagina 12 informazioni aggiuntive per il plot di funzioni
-->PHP OOP (interrotto perchè inutile al momento):
-https://www.html.it/pag/18344/le-costanti3/
 ->	DISCORD:
 https://discordjs.guide/command-handling/#individual-command-files
 

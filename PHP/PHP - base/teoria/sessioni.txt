@@ -23,6 +23,23 @@ il metodo, per quanto accettato da php, è un grosso rischio per la sicurezza! m
 
 ---
 
+come controllare se una sessione è ancora aperta sul server? si può usare (solo dalla versione 5.4 di PHP) la funzione
+
+session_status()
+
+che ritorna PHP_SESSION_NONE in caso non ci fosse alcuna sessione attiva. nota: se una sessione è attiva, quella è riferita al client che ha formulato la richiesta, cioè chi sta utilizzando la pagina. 
+per versioni un po' meno recenti funziona anche controllare se è stato istanziato l'array superglobale $_SESSION[] usando la funzione
+
+isset(array)
+
+della sessione attiva possiamo vedere l'ID tramite la funzione
+
+session_id()
+
+che ritorna l'ID associato alla sessione, se aperta; altrimenti, una stringa vuota. NOTA IMPORTANTE: l'ID di una sessione è una stringa.
+
+---
+
 per creare un dato di sessione, basta creare una nuova entry nell'array superglobale $_SESSION[] e assegnargli il valore desiderato. nulla di più semplice: la nuova locazione viene creata quando la si nomina per la prima volta.
 
 e per eliminare i dati di sessione? si usa la funzione unset() come già visto per i cookies.
