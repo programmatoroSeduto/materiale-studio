@@ -18,7 +18,7 @@ la prima fase è la "precompilazione" della query, usando il metodo
 
 ->prepare("query sql con placeholder")
 
-contenuto nella classe che rappresenta il collegamento tra script e database. la query ad argomento della funzione è solo uno scheletro nella quale non abbiamo ancora inserito alcuna informazione. segno col punto interrogativo il punto dove porre l'informazione mancante al momento di eseguire la query. ad esempio,
+il metodo ritorna un oggetto del tipo mysqli_stmt, mentre prepare è contenuto nella classe che rappresenta il collegamento tra script e database. la query ad argomento della funzione è solo uno scheletro nella quale non abbiamo ancora inserito alcuna informazione. segno col punto interrogativo il punto dove porre l'informazione mancante al momento di eseguire la query. ad esempio,
 
 $query = $mysqli->prepare("SELECT * FROM login WHERE user = ? AND password = ?");
 
@@ -26,7 +26,7 @@ quel codice SQL rappresenta lo scheletro della query, a cui mancano le informazi
 
 ---
 
-la seconda fase consiste nell'associare i placeholder ai valori che la query deve utilizzare. si usa il metodo
+la seconda fase consiste nell'associare i placeholder ai valori che la query deve utilizzare. si usa il metodo (in mysqli_stmt)
 
 ->bind_param( format, ... args ... )
 

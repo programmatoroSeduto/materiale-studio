@@ -45,16 +45,11 @@ ora che siamo connessi al dbms, come utilizzarlo? primo metodo:
 
 $mysqli->query("SQL command");
 
-restituisce true o false a seconda che l'operazione abbia avuto o no successo.
-eventualmente si può anche sfruttare così il booleano ritornato dalla funzione:
+restituisce:
+	TRUE			se la richiesta è andata a buon fine (una qualunque richiesta, ad esempio inserire una tupla)
+	FALSE			se una qualunque operazione non è andata a buon fine
+	un oggetto mysqli_result, un iteratore che permette di interagire con la tabella risultante da una query comune	
 
-if(!$mysqli->query("SQL command"))
-	die("errore!");
-	
-campi utili per capire quali e quante righe di una tabella sono state modificate da query:
-->affected_rows						il numero di righe intressate dall'ultima query
-->num_rows							quante righe sono state ritornate dalla query
-	
 ---
 
 come ritrovare i risultati di una query?

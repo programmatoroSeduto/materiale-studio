@@ -1,8 +1,7 @@
 CONTINUA DA: 
-->	SQL:
-https://www.w3schools.com/sql/sql_between.asp
-continua clausola WHERE; 
-sistemare la lista di argomenti SQL
+->	PHP:
+https://www.php.net/manual/en/mysqli-stmt.affected-rows.php
+riverede il file sui prepared statements: potrebbe contenere informazioni errate.
 ->	CSS: 
 https://www.html.it/pag/14221/valori-e-unit-di-misura/  
 ->	MATLAB:
