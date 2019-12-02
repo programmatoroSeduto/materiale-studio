@@ -1,0 +1,56 @@
+ELEMENTI DI BASE DELL'ARCHITETTURA
+
+---
+
+informazioni di base sul MIPS-32:
+
+-	è fornito di un BANCO REGISTRI interno con 32 locazioni da 32 bit ciascuna, utile a conservare una parte dei dati del programma
+
+-	MIPS-32 è un'architettura LOAD-STORE, ovvero non è in grado di lavorare direttamente sulla MEMORIA CENTRALE ma ha bisogno prima di portare i dati nei propri registri per elaborarli
+
+-	fa riferimento ad una MEMORIA ISTRUZIONI, parte della memoria principale; il programma per il processore è semplicemente un elenco di istruzioni da eseguire una alla volta "scorrendo la lista"
+
+-	il processore segna il progresso del programma usando un registro particolare, non incluso nel banco registri, detto PROGRAM COUNTER: il PC punta alla prossima istruzione da servire. NOTA BENE: il programma è memorizzato esattamente come i dati in memoria principale, secondo i principi dell'architettura di von Neumann
+
+-	la progettazione del MIPS-32 segue questi principi fondamentali:
+	1.	LA SEMPLICITA' FAVORISCE LA REGOLARITA'
+	2.	MINORI SONO LE DIMENSIONI, MAGGIORE E' LA VELOCITA'
+	3.	UN BUON PROGETTO RICHIEDE BUONI COMPROMESSI
+	4.	RENDERE VELOCI LE SITUAZIONI COMUNI
+	sono principi pratici, veri nella maggior parte dei casi, non sempre. MIPS è un processore progettato secondo l'approccio RISC, a differenza di altri processori come quelli della Intel
+
+-	alcuni termini ricorrenti:
+	ASSEMBLY			un linguaggio che rappresenta in maniera umanamente intellegibile il programma che il processore deve eseguire
+	CODICE MACCHINA		il programma assembly rappresentato in stringhe di bit, ovvero nel modo in cui è visto dal processore
+	nel MIPS l'associazione tra i due codici è biunivoca: posso tradurre l'assembly direttamente in codice macchina, e il codice macchina in assembly. fa eccezione il caso in cui compaiono nell'assembly le PSEUDOISTRUZIONI ovvero "forme abbreviate" che esprimono un insieme di operazioni anzichè una sola; servono per rendere più leggibile il codice, nulla di più.
+	si capisce da ciò che ogni processore ha il suo linguaggio assembly. l'insieme dei costrutti di base riconosciuti da un procssore costituisce l'Instruction Set Architecture del processore, la sua ISA come si dice comunemente.
+	l'ISA di un processore contiene tutte le istruzioni strettamente necessarie ad eseguire i compiti richiesti al processore; ha diverse proprietà importanti, è oggetto di simulazioni, ed è il punto di partenza per la progettazione di un processore. la qualità dell'ISA influisce sul numero di istruzioni di un programma, dunque sui tempi di esecuzione, sulla complessità dei compilatori per quell'architettura, e molto altro.
+	
+---
+
+un processore è fondamentalmente una "macchina" che riceve un incarico ed esegue. a prima vista gli incarichi richiesti ad un processore sono molto semplici, e costituiscono i "blocchi elementari" per la costruzione di operazioni più complesse.
+
+gli "ordini" sono stringhe di 32 bit (1 word, 4 parole), no istruzioni a lunghezza variabile, solo 3 tipi di formato delle istruzioni, formati rigidi:
+
+formato R: codop[31-26] | rs[25-21] | rt[20-16] | rd[15-11] | shamt[10-6] | funct[5-0] |
+formato I: codop[31-26] | rs[25-21] | rt[20-16] | const[15-0]      |
+formato J: codop[31-26] | const[25-0]      |
+
+terminologie:
+
+codop			codice operazione; esprime il tipo di comando(istruzione aritmetica, istruzione di load, istruzione di store, ...)
+rs				il primo registro da cui prelevare un dato
+rt				il secondo registro da cui prelevare un dato
+rd				un registro su cui scrivere un dato
+shamt			esprime un'operazione di shift binario
+funct			(solo formato R) il tipo specifico di operazione di calcolo richiesta
+const			per poter rendere veloci alcune situazioni frequenti, è concesso che alcune istruzioni MIPS possano contenere costanti
+
+il formato R è impiegato per operazioni che utilizzano 3 registri, di cui 2 per la lettura e uno per la scrittura. un esempio: l'operazione di somma. "a+b=c" si legge "prendi il primo operando da 'a', il secondo da 'b', e scrivi il risultato in 'c'".
+
+il formato I (per gli amici, 'immediate') serve quando ci sono massimo due registri utilizzati dall'operazione, e quando serve che sia l'istruzione stessa a contenere la costante.
+
+il formato J (per gli amici, 'jump') è quasi interamente dedicato ad una costante; non fa uso di registri, o almeno ne fa uso solo implicitamente, in maniera del tutto trasparente al programmatore.
+
+---
+
