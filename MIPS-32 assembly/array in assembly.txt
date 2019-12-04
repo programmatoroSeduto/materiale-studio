@@ -1,0 +1,127 @@
+METODI PER GLI ACCESSI AD ARRAY IN ASSEMBLY
+
+---
+
+nella scrittura del codice assembly ci sono alcune richieste che si svolgono sempre alla stessa maniera: ad esempio, gli accessi ad elementi di un array.
+ogni volta che si deve tradurre un segmento di linguaggio C che contiene accessi ad array, si deve applicare sempre la stessa procedura per ogni accesso, eventualmente ottimizzata a seconda del caso. è questo il lavoro che svolge un compilatore in automatico.
+
+---
+
+innanzitutto, com'è fatto un array? CONVENZIONE C:
+-	è una sequenza di n celle di memoria, tutte adiacenti (non ci sono spazi di memoria nel mezzo che non fanno parte dell'array)
+-	in memoria si trova solo ed esclusivamente l'array, e nessun'altra informazione ausiliaria, come ad esempio la lunghezza dell'array (diversamente dalla convenzione Java che richiede una cella di memoria per la lunghezza dell'array)
+-	l'indirizzo della cella di memoria è detto INDIRIZZO BASE: non può essere modificato, meglio lasciarlo invariato ogni volta
+-	per l'accesso agli elementi dell'array è necessario avere anche un secondo puntatore, ricavabile per offset (NON PERSISTENTE) o definendo direttamente un'altra variabile (PERSISTENTE)
+
+nota bene. il MIPS indirizza al byte la cella di memoria, dunque un qualunque puntatore dovrà avere un valore riferito al byte e non alla word. quindi, per spostarsi tra una cella e l'altra dell'array sarà necessario aggiungere/togliere 4 al puntatore. insomma, bisogna tener conto delle dimensioni che il numero rappresenta.
+e se volessi mantenere il numero in word senza dover fare questa conversione? allora prima di utilizzare l'indirizzo, lo shifto a sinistra di 2 posizioni; per le regole dell'aritmetica binaria, questo equivale a moltiplicare per 2^2 cioè 4 il valore della cella di memoria. qual'è la logica? una word contiene 4 byte, quindi se A è l'indirizzo alla word, A*4 sarà l'indirizzio al byte, no? 
+
+altro nota bene. una struttura dati esiste in memoria fin quando il programmatore se ne ricorda; questo significa che è il programmatore a dover risolvere tutte quelle situazioni che non dovrebbero verificarsi. ad esempio, usando un array, non è bene che lo scorrimento prosegua anche oltre i confini dell'array, e nulla vieta nell'Assembly che questo accada, dunque è il programmatore che deve evitare che una situazione del genere si verifichi.
+
+---
+
+modi di trovare la posizione su un array:
+-	accesso puntuale statico (usando l'offset) (PESSIMA IDEA!)
+-	accesso puntuale dinamico (senza usare l'offset)
+-	accesso a scorrimento usando l'offset
+-	accesso a scorrimento "locale" ovvero non usando l'offset
+
+ognuno di questi tipi di accesso può essere utilizzato sia in lettura che in scrittura con le istruzioni MIPS dedicate.
+trascuriamo per il momento gli accessi al byte e alla half word.
+
+negli esempi utilizzeremo l'istruzione astratta 'mem' per indicare una tra le operazioni MIPS lw o sw.
+
+ogni volta che devo accedere ad un array mi serve sapere
+-	l'indirizzo del primo elemento dell'array
+-	l'indice dell'elemento al quale voglio accedere
+
+---
+
+ACCESSO PUNTUALE STATICO:
+
+BASE	:	indirizzo di base
+IDX	:	indice della cella di array richiesta, già moltiplicato per 4 (come? mi sono fatto a manina io i conti)
+REG	:	il registro da cui prendere o in cui porre il dato
+
+mem REG, IDX(BASE)
+
+con una sola istruzione me la sono cavata. però questa è una PESSIMA IDEA: ci piacerebbe non calcolarci a mano l'indirizzo al quale accedere! in altri contesti la soluzione può andare bene... qui, no.
+
+esempi: 
+lw $t1, 1200($s0)	# 1200/4=300 è il valore dell'indice 
+
+---
+
+ACCESSO PUNTUALE DINAMICO:
+mantenendo sempre la stessa convenzione di prima, e immaginando di avere tutti i dati già in byte,
+1.	creo una variabile temporanea che ospiterà l'indirizzo dell'elemento dell'array (non è il registro che contiene l'indice o l'indirizzo di base, ovvio!)
+2.	calcolo l'indirizzo sommando alla base il valore dell'indice
+3.	accesso sommando zero in offset
+
+add TEMP, BASE, IDX
+mem REG, 0(TEMP)
+
+questa idea è decisamente migliore dell'altra. indovina perchè?
+-	è più generale: funziona qualunque sia il valore dell'indice
+-	per implementare uno scorrimento nell'array basta aggiornare TEMP
+
+---
+
+ACCESSO A SCORRIMENTO USANDO L'OFFSET
+anche questa è una pessima idea nel dominio degli array, mentre invece diventa una buona idea in altre strutture, ad esempio lo stack.
+supponiamo di voler accedere ai primi 4 elementi dell'array:
+
+mem REG1, 0(BASE)
+mem REG1, 4(BASE)
+mem REG1, 8(BASE)
+mem REG1, 12(BASE)
+
+si capisce perchè è una pessima idea, no?
+
+---
+
+ACCESSO A SCORRIMENTO SENZA USARE L'OFFSET
+il principio è quello dell'accesso puntuale dinamico, solo che questa volta è la base a scorrere. risolviamo sempre lo stesso problema di prima: accesso ai primi 4 elementi dell'array.
+
+
+add1 TEMP, BASE, 0	# il metodo richiede un'inizializzazione
+mem REG1, 0(TEMP)	# primo
+
+addi TEMP, BASE, 4	# secondo
+mem REG2, 0(TEMP)
+
+addi TEMP, BASE, 4	# terzo
+mem REG3, 0(TEMP)
+
+addi TEMP, BASE, 4	# quarto, fine
+mem REG4, 0(TEMP)
+
+nulla di più semplice! 
+e se volessi scorrere solo sui numeri pari?
+
+add1 TEMP, BASE, 0	# il metodo richiede un'inizializzazione
+mem REG1, 0(TEMP)	# primo
+
+addi TEMP, BASE, 8	# secondo
+mem REG2, 0(TEMP)
+
+addi TEMP, BASE, 8	# terzo
+mem REG3, 0(TEMP)
+
+addi TEMP, BASE, 8	# quarto, fine
+mem REG4, 0(TEMP)
+
+e se volessi scorrere solo sui numeri dispari? basta cambiare l'inizializzazione!
+e se volessi scorrere a partire da un certo indice? basta cambiare l'inizializzazione!
+e se volessi... devo continuare?
+
+---
+
+
+
+
+
+
+
+
+

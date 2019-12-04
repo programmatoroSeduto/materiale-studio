@@ -1,0 +1,39 @@
+METODI PER GESTIRE LO STACK
+
+---
+
+un qualunque programma C vive all'interno di una struttura dati memorizzata come una serie di locazioni adiacenti, ordinata dal basso verso l'alto:
+-	dati riservati, cioè variabili che solo il sistema operativo può utilizzare per gestire l'esecuzione del programma
+-	segmento di testo, ovvero il codice assembly del programma (in questo caso, assembly MIPS-32)
+-	dati statici, ovvero le variabili globali con cui è inizializzato il programma; struttura statica, creata dal sistema operativo su richiesta del programma al momento del caricamento in memoria
+-	dati dinamici (per gli amici, lo "heap"), ovvero uno spazio per allocare dati a seguito di una malloc o una new; è uno stack che cresce dal basso verso l'alto; per indicizzare l'elemento più in alto si usa un puntatore chiamato per convenzione GLOBAL POINTER
+-	uno spazio vuoto, occupabile da dati dinamici o da
+-	lo "stack" propriamente detto, cioè uno stack che ospita l'enviroment del programma C.
+
+lo stack è una struttura dati particolare che tiene conto dell'ordine con cui vengono chiamate le procedure; pensa ad un programma C, e in particolare alle sue regole di visibilità e al percorso che segue l'esecuzione di un programma quando vengono chiamate le funzioni.
+quest'area della memoria contiene strutture dati dette FRAME DI ATTIVAZIONE, impilate a stack. ogni frame di attevazione è così strutturato (stavolta dall'alto verso il basso):
+-	gli argomenti con i quali la funzione in esecuzione è stata chiamata; l'indirizzo al primo argomento è chamato FRAME POINTER, e serve da riferimento per orientarsi nel frame di attivazione
+-	vari indirizzi di ritorno, tra cui il return address, salvato ad ogni chiamata a procedura
+-	un backup di tutti i registri $s che la procedura chiamata dovrà usare nel suo lavoro
+-	e un backup di tutti i registri temporanei
+-	dati locali della procedura (è solo questa la vera parte dinamica del frame di attivazione!)
+
+---
+
+DA IMPARARE A MEMORIA! metodo per eseguire una chiamata a funzione: parliamo di cosa dovrebbe accadere dopo che il chiamante ha eseguito il salto alla prima istruzione della procedura chiamata. essa potrà già iniziare a lavorare? ovviamente no! prima bisogna fare il backup dell'enviroment del chiamante!
+
+immaginiamo che la procedura chiamata debba usare TUTTI i registri del processore: cosa farà?
+1.	prendi spazio sullo stack SOTTRAENDO al valore dello stack pointer $sp (quanti registri devo salvare)*4
+	ESEMPIO:
+	devo salvare tutti i registri T, tutti i registri S, tutti gli argomenti e il return address: $sp <- $sp - (23 registri)*4
+	ovvero $sp <- $sp - 92
+	(ovviamente molto spesso non servirà salvarne così tanti...)
+2.	usando lo stack pointer E SCORRENDO L'OFFSET DAL BASSO VERSO L'ALTO salvo i registri in quest'ordine:
+	registri T
+	registri S
+	registro RA
+	registri A
+oppure potrei eseguire tanti accessi locali a scorrimento, ma questo costerebbe di più in termini di operazioni.
+
+---
+
