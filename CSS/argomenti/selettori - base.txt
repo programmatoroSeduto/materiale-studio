@@ -20,7 +20,7 @@ es.: .classe {color: red; background-color: green;} (nel foglio di stile) <div c
 Alternativamente, è possibile dichiarare una classe e vincolarla ad uno specifico tipo.
 es.: p.classe {color: red;} influenzerà solamente i paragrafi p dotati di classe 'classe'
 Infine, è possibile definire classi multiple.
-es.: p.classe1.classe2 {color: red; background-color: green;} influenzerà solamente i paragrafi p dotati di classe "classe1" e "classe", in qualsiasi ordine siano scritte.
+es.: p.classe1.classe2 {color: red; background-color: green;} influenzerà solamente i paragrafi p dotati di classe "classe1" e "classe2", in qualsiasi ordine siano scritte.
 
 Il selettore per Id opera nel seguente modo:
 es.: #titolo {color: red;} verrà influenzato così solamente l'elemento con codice Id corrispondente a '#titolo'.
