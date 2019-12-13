@@ -1,0 +1,57 @@
+JUMBOTRON E ALTRI ELEMENTI
+
+---
+
+un jumbotron, DIVERSO DAL CONTAINER che è un elemento di layout della pagina, è un box di un certo colore che deve richiamare l'attenzione del lettore.
+
+jumbotron				normale
+jumbotron-fluid			responsive
+
+---
+
+gli alert sono box colorati che devono richiamare l'attenzione su qualcosa di momentaneo. vengono utilizzati solitamente per notificare il risultato di un'azione, ad esempio un tentativo di accesso al proprio profilo.
+
+alert							alert standard
+alert-[un colore bootstrap]		un tipo di alert particolare
+
+contenuto:
+
+alert-link			per i link nel box
+
+è possibile aggiungere un tasto per chiudere l'alert:
+
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>
+
+l'attributo data-dismiss="dismissible" funziona anche sui link ad esempio, e su tutte le cose sulle quali un utente può cliccare.
+per aggiungere la scomparsa "graduale", aggiungere le classi 'fade show'.
+
+---
+
+un bottone in bootstrap può essere un link, un button e un elemento input:
+
+btn									indica che quell'elemento è un bottone
+btn-[colore bootstrap]				bg del bottone
+btn-outline-[colore bootstrap]		contorno del bottone
+btn-[sm md lg xl]					dimensioni del bottone (le solite...)
+btn-block							il bottone è un elemento di tipo block
+[active disabled]					stato del bottone, a livello grafico
+
+i bottoni si possono raggruppare usando btn-group data ad un div che racchiude tutti i bottoni da raggruppare.
+
+btn-group							raggruppamento orizzontale
+btn-group-[sm md lg xl]
+btn-group-vertical					raggruppamento verticale
+
+nota: si possono creare anche dei dropdown di bottoni, vedi dropdrown.
+
+---
+
+i badge servono a dare informazioni aggiuntive all'utente sullo stato di una particolare funzionalità. ad esempio, si potrebbe trovare un badge che dice quanti messaggi ci sono, sul tasto che apre la posta elettronica.
+vengono inseriti usando il tag span.
+
+badge								indica che quell'elemento è un badge
+badge-[un colore bootstrap]			indica il "tipo" di badge da usare
+badge-pill							dai una forma un po' più arrotondata al badge

@@ -1,0 +1,10 @@
+UTILITY BOOTSTRAP
+cioè tutte cose che potrebbero tornare utili.
+
+---
+
+colore del background:
+bg-[un colore bootstrap]
+
+---
+

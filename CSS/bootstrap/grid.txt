@@ -1,0 +1,28 @@
+GRID SYSTEM BOOTSTRAP
+
+---
+
+implementato usando flexbox. massimo 12 colonne in una pagina.
+automaticamente responsive.
+
+---
+
+tutti i comandi bootstrap per le colonne seguono la sintassi
+
+col-[sm md lg xl]-[N]
+
+dove N è il numero di 'colonne vicine' occupate da quella colonna.
+si può anche usare solo 'col': questo significa che bootstrap distribuirà in automatico le colonne lungo la riga.
+la sintassi con le due informazioni consente di distribuire le colonne in maniera irregolare nello spazio; col le distribuisce uniformemente.
+
+per definire la riga si usa la classe 'row'.
+
+per utilizzare grid:
+1.	creo una row (usa un div con classe row)
+2.	creo le colonne all'interno della row, massimo 12 (eventualmente innestate)
+
+NOTA BENE! 
+PER SCHERMI PICCOLI O ZOOM ESAGERATO, BOOTSTRAP DISPORRA' IN AUTOMATICO LE COLONNE UNA SOPRA L'ALTRA; le trasformerà cioè in righe.
+
+---
+

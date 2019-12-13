@@ -1,0 +1,20 @@
+IMMAGINI BOOTSTRAP
+
+---
+
+stili pronti per i bordi delle immagini:
+rounded						bordi arrotondati
+rounded-circle				sagoma i bordi ad ovale
+thumbnail					come fosse una specie di foto
+
+allineamento:
+float-[right left]
+
+centrare l'immagine richiede due classi: 'd-block mx-auto'
+sta per 'dislay:block;margin:auto'.
+
+immagine responsive: img-fluid
+applica in automatico max-width:100% e height:auto .
+
+---
+

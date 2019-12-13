@@ -1,0 +1,13 @@
+CONTAINER
+
+---
+
+container automaticamente responsive:
+
+container					// width < 100%
+containter-fluid			// width 100%
+container-[sm md lg xl]		// a seconda delle dimensioni dello schermo
+							// cambia max-width a seconda del caso specificato
+
+---
+

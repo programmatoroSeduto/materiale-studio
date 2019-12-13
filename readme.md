@@ -4,6 +4,9 @@ https://www.php.net/manual/en/mysqli-stmt.affected-rows.php
 riverede il file sui prepared statements: potrebbe contenere informazioni errate.
 ->	CSS: 
 https://www.html.it/pag/14221/valori-e-unit-di-misura/  
+->	BOOTSTRAP:
+https://www.w3schools.com/bootstrap4/bootstrap_progressbars.asp 
+continua con le progressbar in jumbotron e altri elementi 
 ->	MATLAB:
 file: plot di funzioni;
 cntinua da pagina 12 informazioni aggiuntive per il plot di funzioni
