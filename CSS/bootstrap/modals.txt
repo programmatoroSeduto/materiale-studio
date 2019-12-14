@@ -32,3 +32,6 @@ altre classi per controllare il modal:
 data-backdrop			{static, true, false} sfondo scuro? si/no. 
 						static: il modal non sparisce quando si clicca sullo sfondo scuro
 data-keyboard			{true, false} il modal può essere chiuso premendo esc? si/no
+
+---
+
