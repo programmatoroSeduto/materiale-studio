@@ -1,10 +1,116 @@
 UTILITY BOOTSTRAP
 cioè tutte cose che potrebbero tornare utili.
 
----
+nota: [sm md lg xl] sono detti "breakpoint".
+
+--- BACKGROUND
 
 colore del background:
 bg-[un colore bootstrap]
 
----
+--- BORDERS
 
+border					applica un bordo... tutto qui.
+border-[top bottom left right]-0		elimina uno dei bordi(terminologia da CSS)
+border[un colore bootstrap]				colore dei bordi
+rounded-[0 top bottom left right lg left circle]		forma del bordo
+
+--- FLOATING
+
+float-[none left right]			sposta a destra o a sinistra
+clearfix					(da dare al contenitore) floating pulito
+float[sm md lg xl]				floating in versione responsive
+								OVVERO queste proprietà verranno applicate solo da una certa dimensione dello schermo in poi
+mx-auto							centra un elemento
+
+--- WIDTH e HEIGHT
+
+w-[25 50 75 100]				width in percentuali(25%, 50%, 75%, 100%)
+mw-[100]						max width
+h-[25 50 75 100]				height
+mh-[100]
+
+--- POSIZIONAMENTO E SPAZI
+
+questi comandi hanno due formati fondamentali:
+
+[proprietà][lato]-[misura]					semplice
+[proprietà][lato]-[sm md lg xl]-[misura]	con responsive
+
+proprietà:
+	m					margine
+	p					padding
+	
+lati:
+	t					top
+	b					bottom
+	l					left
+	r					right
+	
+	x					left e right(coordinata cartesiana x!)
+	y					top e bottom(coordinata cartesiana y!)
+	
+	blank				tutto
+	
+misure:
+	0					0rem
+	1					0.25rem
+	[2 3 4]				da 0.5rem a 1.5rem
+	5					3rem
+	auto				corrisponde al valore auto nel CSS comune
+	n1					-0.25rem
+	n[2 3 4]			da -0.5rem a -1.5rem
+	n5					-3rem
+	
+--- SHADOWS
+
+shadow-none				nessuna ombreggiatura
+shadow					ombra di default
+shadow-[sm lg]			ombra con certe dimensioni
+
+--- ALIGN 
+solo elementi inline, inline-block, inline-table e table
+
+align-[baseline top middle bottom]		elemento generico compatibile
+align-text-[top bottom] 				riservato al testo
+
+--- RESPONSIVE EMBEDS
+utilizzato per adattare gli iframes in maniera automatica al padre. solo tags iframes e video.
+
+contenitore:
+embed-responsive					questo div contiene un elemento da adattare
+embed-responsive-[1by1 16by9 4by3 21by9]		formato di adattamento(1:1, 16:9 etc etc etc)
+
+elemento iframe:
+embed-responsive-item				indica a Bootstrap quale degli elementi va ridimensionato
+									NOTA: potrei anche non voler ridimensionare tutti gli elementi iframe contenuti...
+
+--- VISIBILITA'
+
+ [visibile invisible]				elemento visualizzato o meno
+ 
+ nota: viene lasciato lo spazio dove si doveva trovare l'elemento invisibile!
+ 
+ --- SCROLL
+ 
+ fixed-[top bottom]					elemento in posizione fissa in alto o in basso
+ sticky-top							elemento sticky
+ 
+ --- DISPLAY
+ sintassi:
+ d-[attr]
+ d-[breakpoint]-[attr]
+ 
+ dove attr è:
+	none
+	block
+	inline-block
+	table
+	table-cell
+	table-row
+	flex
+	inline-flex
+ 
+ ---
+ 
+ 

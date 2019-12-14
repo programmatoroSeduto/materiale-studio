@@ -1,0 +1,89 @@
+NAV, NAVBAR E TABS
+
+--- NAV
+contenitore: ul. elemento: li.
+
+contenitore:
+nav
+justify-content-[center end]			posizione nav
+nav-pills								tasti con bordi leggermente più arrotondati
+nav-justified							espandi la nav in tutta la lungezza disponibile
+flex-column								usato per creare la nav verticale (hmmmm...)
+
+elemento:
+nav-item
+nav-link								per il link all'interno di <li>
+[active disabled]						per il link all'interno di <li>
+
+--- TAB
+una tab è come una navbar, ma aggiunge l'effetto "schedario".
+
+contenitore:
+nav-tab									oltre che essere una nav, è anche una tab!
+										UTILIZZO: "nav nav-tab"
+--- DYNAMIC TABS
+funzionano un po' come i collapsible, ma con animazione adatta per le tabs (fade...).
+procedura:
+1.	implementare la tab normalmente
+2.	scrivere i contenuti delle tab come spazi separati (div solitamente); tutti devono essere contenuti in una classe tab-content
+3.	andremo ad associare un tasto della tab al suo contenitore. il tasto ha questi attributi:
+	->	data-toggle="tab" o data-toggle="pill" se si sta usando il tipo di barra con pills
+	->	molto spesso il tasto è fatto come link, href="#..." con ... id dell'elemento su cui influire
+4.	l'elemento associato dovrà avere classe "tab-pane" e avere id ...
+sarà bootstrap a preoccuparsi di tutti gli altri dettagli, ad esempio aprire una scheda chiudendone un'altra, e avanti così.
+
+altre classi utili per la tab:
+active				visualizzata fin dall'inizio
+fade				???
+
+--- NAVBAR
+una navbar ha esplicitamente il tag HTML <nav>. contiene un elenco <ul> coi suoi elementi. nota: solitamente l'interno dei tasti di una navbar è fatto di tag <a>.
+
+tag nav:
+navbar					qui c'è una navbar!
+navbar-expand-[breakpoint]		dispone orizzontalmente gli elementi da una certa dimensione dello schermo in poi
+								nota: se non indichi questo attributo, gli elementi saranno sempre disposti vericali
+justify-content-[center end]
+navbar-[light dark]				stili della navbar
+
+tag ul:
+navbar-nav
+
+elementi:
+navbar-item
+
+elementi aggiuntivi posti al di fuori di ul:
+navbar-brand					logo
+								può anche contenere un'immagine, ovvio
+navbar-text						testo normale nella navbar
+
+--- BARRE DI RICERCA
+botstrap mette a disposizione una procedura per inserire una barra di ricerca all'interno della navbar, operazione molto richiesta.
+si usa il tag form.
+
+tag form:
+form-inline						riadatta il form in modo da farlo rientrare nella barra
+
+input:
+form-control					
+
+raggruppamento di input: si usa input-group (solito group stile bootstrap).
+input-group-[append prepend]	metti l'elemento dopo o prima (solitamente c'è un contenitore con queste classi)
+input-group-text				testo da raggruppare con l'input
+occhio con append e prepend: conta anche il posizionamento nel codice!
+								
+--- COLLAPSIBLE NAVBAR
+molto spesso, soprattutto per schermi piccoli, è necessario collassare la barra, collocando un tasto per richiamarla all'occorrenza. bootstrap consente di risparmiare un bel po' di codice.
+è il programmatore a costruire il button da inserire al momento giusto. lo si costruisce così:
+-	viene collocato nel tag nav
+-	ha classe "navbar-toggler"
+-	vedi i collapsible per gli attributi del button (protocollo quasi identico)
+Bootstrap mette a disposizione l'icona tipica per richiamare la navbar:
+ <span class="navbar-toggler-icon"></span>
+ da inserire nel button.
+la barra deve avere le due classi "collapse navbar-collapse" ed essere vincolata al tasto dall'id HTML.
+
+chi dice alla barra di nascondersi? è la classe navbar-extend-[]; se tolta, la navbar verrà sempre nascosta.
+nota. se qualcosa viene nascosto ma non c'è nulla che lo richiami, l'oggetto rimarrà sempre nascosto. molto utile!
+
+--- 

@@ -2,6 +2,7 @@ container
 grid
 typo
 jumbotron e altri elementi
+nav navbar e tabs
 colori
 immagini
 utility

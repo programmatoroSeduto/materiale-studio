@@ -1,13 +1,13 @@
 JUMBOTRON E ALTRI ELEMENTI
 
----
+--- JUMBOTRON
 
 un jumbotron, DIVERSO DAL CONTAINER che è un elemento di layout della pagina, è un box di un certo colore che deve richiamare l'attenzione del lettore.
 
 jumbotron				normale
 jumbotron-fluid			responsive
 
----
+--- ALERT
 
 gli alert sono box colorati che devono richiamare l'attenzione su qualcosa di momentaneo. vengono utilizzati solitamente per notificare il risultato di un'azione, ad esempio un tentativo di accesso al proprio profilo.
 
@@ -28,7 +28,7 @@ alert-link			per i link nel box
 l'attributo data-dismiss="dismissible" funziona anche sui link ad esempio, e su tutte le cose sulle quali un utente può cliccare.
 per aggiungere la scomparsa "graduale", aggiungere le classi 'fade show'.
 
----
+--- BUTTON
 
 un bottone in bootstrap può essere un link, un button e un elemento input:
 
@@ -47,7 +47,45 @@ btn-group-vertical					raggruppamento verticale
 
 nota: si possono creare anche dei dropdown di bottoni, vedi dropdrown.
 
----
+--- DROPDOWN
+realizzazione un po' contorta rispetto ai normali costrutti bootstrap. ecco come costruire un drodown generico:
+1.	tutto è contenuto in un contenitore di tipo "dropdown"
+2.	inizia con l'elemento che dovrebbe permettere la visualizzazione del dropdown: dovrà avere
+	->	classe "dropdown-toggle"
+	->	attributo data-toggle="dropdown"
+3.	il dropown vero e proprio è contenuto in un elemento div di tipo "dropdown-menu"
+4.	ogni voce ha classe "dropdown-item"
+nota: non si possono realizzare così dropdown innestati, non funzionerebbero.
+
+per il contenitore principale:
+dropdown
+drop[left right up]			il dropdown si apre a sinistra o a destra
+
+per il contenitore secondario:
+dropdown-menu-[left right]	dice come aprire il dropdown in caso di buttons troppo larghi
+
+per gli elementi:
+dropdown-divider			dividi le voci di un dropdown(è un div dedicato)
+dropdown-header				raggruppamento delle voci, è un titolo per un gruppo di voci
+dropdown-text				usa lo stile di default per link e testo
+[active disabled]			la voce è attiva o meno
+
+per realizzare elementi button+dropdown basta modificare leggermente il passo 2: si usa btn-group, indicando al solito modo quale dovrebbe essere il button a cui è associato il dropdown.
+
+--- COLLAPSIBLE
+un elemento collapsible può essere nascosco o visualizzato (con relativa animazione) usando un tasto. funziona in modo molto simile ai dropdown.
+procedura:
+1.	c'è un button, o qualche altro elemento clickabile, a cui soo associati due attributi:
+	->	data-toggle="collapse"
+	->	data-target="#..." dove ... è l'id dell'elemento sul quale agire
+2.	poco dopo nel codice c'è un elemento (div?) che ha ... come id e ha classe collapse
+
+classi utili per il singolo elemento:
+show			di default un elemento collapse è nascosto; 
+				con questa classe lo si può visualizzare all'inizio
+
+
+--- BADGE
 
 i badge servono a dare informazioni aggiuntive all'utente sullo stato di una particolare funzionalità. ad esempio, si potrebbe trovare un badge che dice quanti messaggi ci sono, sul tasto che apre la posta elettronica.
 vengono inseriti usando il tag span.
@@ -55,3 +93,115 @@ vengono inseriti usando il tag span.
 badge								indica che quell'elemento è un badge
 badge-[un colore bootstrap]			indica il "tipo" di badge da usare
 badge-pill							dai una forma un po' più arrotondata al badge
+
+--- PROGRESSBAR
+
+classi per la progressbar:
+
+progress							è la classe da dare al contenitore che conterrà la progressbar
+									nota: un contenitore può contenere diverse progressbar
+									in questo caso sarà bootstrap ad allinearle in modo da riempire nella maniera opportuna lo spazio disponibile
+progress-bar						è la barra, da mettere nel contenitore progress
+									indicarne la lunghezza con l'attributo width in HTML, o style
+									si può inserire anche una label sulla barra, basta scrivere nel tag div che rappresenta la barra
+progress-bar-striped				stile particolare di una progressbar, da applicare all'oggetto che la rappresenta
+progress-bar-animated				applicare una certa animazione sullo stile della progressbar
+									nota: richiede striped
+
+come controllare l'aspetto della progressbar
+colore					usa bg-[un colore bootstrap]
+lunghezza				usa style
+altezza					usa style
+
+--- SPINNERS
+
+un spinner è un simbolo animato che indica l'esecuzione in atto di una qualche richiesta, ed è fatto più o meno come il cursore nelle recenti versioni di Windows nei momenti in cui il sistema sta caricando.
+si possono inserire dove si vuole: nei buttons, come testo, e altro. è rappresentato da un tag div o da uno span.
+
+spinner-border					spinner circolare
+spinner-border-[sm md lg xl]
+spinner-grow					un altro tipo di spinner
+spinner-grow-[sm md lg xl]
+
+
+essendo considerato come testo, per cambiare colore dello spinner bisogna usar text-[un colore bootstrap].
+
+--- PAGINATION
+
+un elemento di paginazione è una piccola barra che indica all'utente qual'è il numero di pagina che sta visitando. vedi a esempio la ricerca su un motore di ricerca: quando il motore trova miliardi di risultati, si potrebbe decidere di distribuire tutti quei risultati su più pagine anzichè visualizzarli tutti in una sola pagina, il che porta ad introdurre un elemento d paginazione che consenta di
+-	saltare da una pagina all'altra
+-	far capire all'utente qual'è la sua posizione nell'elenco delle ricerche
+-	navigare tra pagine adiacenti
+
+si forna a partire dalla unordered list: il contenitore sarà di tipo pagination, mentre gli elementi saranno di tipo page-item.
+
+contenitore:
+pagination						classe del contenitore
+pagination-[sm md lg xl]
+
+elemento singolo:
+page-item						elemento della barra; può essere qualunque cosa
+[active disabled]				l'elemento della barra è attivo o no
+
+posizione dell'elemento di paginazione:
+								DEFAULT: left
+justify-content-center			centra
+justify-content-end				right
+
+Bootstrap mette a disposizione anche un altro tipo di paginazione, il breadcrumb, cioè una barra i paginazione con link e slash anzichè come sequenza di bottoni. funziona grossomodo come l'altra, ha solo uno stile differente.
+
+contenitore:
+breadcrumb						
+
+elementi:
+breadcrumb-item
+[active disabled]				l'elemento della barra è attivo o no
+
+--- LISTE
+
+ovvero elenchi di voci, utili ad esempio per implementare accordion o altri elementi.
+contenitore: ul. elemento: li.
+oppure,
+contenitore: div. elemento: a.
+
+contenitore:
+list-group						è una lista!
+list-group-flush				rimuovi i bordi esterni dallo stile bootstrap
+list-group-horizontal			lista orizzontale (lo fa assomigliare ad un elemento paginazione)
+
+elemento:
+list-group-item					è un elemento della lista!
+list-group-item-[un colore bootstrap]
+[active disabled]				attivo o no
+list-group-item-action			leggera animazione per i link, meglio di quella di default: fa assomigliare un link ad un bottone, un po' più elegante
+
+--- CARDS
+
+contenitore: div. elemento: qualunque altra cosa.
+
+contenitore di cards:
+card-columns				dispone su una griglia automaticamente costruita le carte
+card-deck					dispone le carte su una sola riga equispaziate
+card-group					come card-deck, ma senza lasciare spazio tra una card e l'altra
+
+contenitore per la singola card:
+card						è una carta!
+
+elemento div:
+card-header					titolo della carta!
+card-body					corpo della carta!
+card-footer					footer della carta!
+card-img-overlay			questo elemento sta sopra l'immagine
+
+elemento tipo:
+card-title					un h1 per le cards
+card-text					paragrafo
+card-link					link per le cards
+	stretched-link			se clicco sulla card, vengo indirizzato alla pagina espressa dal link con questa classe
+
+elementi img nelle cards:
+card-img-[top bottom]		posizione dell'immagine nella card
+
+nota bene. una card non è necessariamente il tipico elemento pesantemente strutturato. può essere anche un semplice riquadro, o qualcosa che rappresenta un tasto. insomma qualcosa di molto semplice.
+
+--- 
