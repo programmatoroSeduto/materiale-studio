@@ -1,0 +1,20 @@
+MEDIA 
+metodi per gestire l'allineamento degli elementi media, tipo immagini e video.
+
+---
+
+contenitore:
+media					ehi! oggetto media!
+
+contenuto media:
+align-self-[start center end]			posiziona in alto, in centro colonna, o in basso
+										adattamenti gestiti in automatico da Bootstrap!
+
+contenuto testuale:
+media-body				del testo da mettere a destra o a sinistra dell'oggetto media
+						la posizione dipende dall'ordine del codice
+
+dove sta il vantaggio di questo meccanismo? se pongo oggetti media innestati, bootstrap gestisce l'allineamento in automatico!
+
+---
+

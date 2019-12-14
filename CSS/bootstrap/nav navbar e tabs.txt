@@ -56,21 +56,6 @@ elementi aggiuntivi posti al di fuori di ul:
 navbar-brand					logo
 								può anche contenere un'immagine, ovvio
 navbar-text						testo normale nella navbar
-
---- BARRE DI RICERCA
-botstrap mette a disposizione una procedura per inserire una barra di ricerca all'interno della navbar, operazione molto richiesta.
-si usa il tag form.
-
-tag form:
-form-inline						riadatta il form in modo da farlo rientrare nella barra
-
-input:
-form-control					
-
-raggruppamento di input: si usa input-group (solito group stile bootstrap).
-input-group-[append prepend]	metti l'elemento dopo o prima (solitamente c'è un contenitore con queste classi)
-input-group-text				testo da raggruppare con l'input
-occhio con append e prepend: conta anche il posizionamento nel codice!
 								
 --- COLLAPSIBLE NAVBAR
 molto spesso, soprattutto per schermi piccoli, è necessario collassare la barra, collocando un tasto per richiamarla all'occorrenza. bootstrap consente di risparmiare un bel po' di codice.

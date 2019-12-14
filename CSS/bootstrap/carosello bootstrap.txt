@@ -1,0 +1,49 @@
+CAROSELLO BOOTSTRAP
+
+--- VERSIONE BASE
+
+come costruire un carosello semplice? basta seguire la procedura:
+
+1.	il contenitore globale sha classe "carousel" più altre classi eventualmente, che specificano il tipo di transizione tra un'immagine e l'altra. ad esempio, "carousel slide" indica una transizione a scorrimento. il carosello deve avere l'attributo data-ride="carousel" .
+
+2.	si passa a costruire gli indicatori. si crea un contenitore con classe "carousel-indicators" (tag ul, elemento li); si inseriscono poi gli elementi, attributi?
+	->	data-target="#..." con ... l'href dei tasti di navigazione del carosello (vedi punti successivi)
+	->	data-slide-to="..." con ... il numero dell'elemento
+	->	class="active" (più eventualmente altre classi) per indicare che l'elemento è quello da cui partire
+	
+3.	gli elementi del carosello sono div all'interno di un div sempre nella sezione con classe "carousel". il contenitore più grande ha come classe "carousel-inner"; gli elementi hanno "carousel-item". nota: il contenuto degli elementi del carosello non è per forza un'immagine: può essere anche altro tipo di markup più strutturato. l'elemento attivo può avere anche la classe "active".
+
+4.	infine, i controlli per muoversi avanti e indietro. nota: si possono implementare anche in altro modo, l'importante è il significato delle classi bootstrap utilizzate.
+il comando "avanti" è un link, e ha attributi
+	->	class="carousel-control-prev"
+	->	href="#..." con ... lo stesso dichiarato al punto 2
+	->	data-slide="prev"
+il comando "indietro" è molto simile:
+	->	class="carousel-control-next"
+	->	href="#..." con ... lo stesso dichiarato al punto 2
+	->	data-slide="next"
+Bootstrap mette a disposizione anche icone:
+	<span class="carousel-control-prev-icon"></span>
+	<span class="carousel-control-next-icon"></span>
+da includere nel link dichiarato come tasto di navigazione.
+
+--- 
+
+non è necessario il JS per avere un controllo sufficientemente avanzato del carosello, grazie agli attributi data- di HTML.
+
+data-slide				in quale direzione scorrere, left o right?
+data-ride="carousel"	un carosello
+data-slide-to			a quale elemento andare (utile da aggiungere ad esempio agli indicatori in basso del carosello)
+
+data-interval			(default: 5000; false o numero) scorrimento automatico(nel contenitore carousel)
+data-keyboard			(booleano) il carosello può essere navigato semplicemente utilizzando i tasti freccia right-left?
+						nota: bisogna essere col cursore sopra il carosello e averci cliccato sopra...
+data-pause				(hover) il carosello smette di scorrere in automatico quando ci si passa sopra col mouse
+data-wrap				(booleano) il carosello deve fermarsi al primo e all'ultimo elemento o continuare ciclicamente?
+						true : ciclico
+						false : con limiti
+						
+ovviamente per fare cose più "fantasiose" è NECESSARIO js o qualche altro linguaggio di scripting client. Bootstrap mette a disposizione anche diverse funzioni per controllare via JS il carosello.
+
+---
+

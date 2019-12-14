@@ -1,0 +1,91 @@
+FORM
+
+---
+
+due tipi di form in bootstrap:
+-	stacked: ogni elemento del form occupa una riga inter (ad esempio il classico form di registrazione)
+-	inline: tutto il form sta in una sola riga (ad esempio la classica barra di ricerca)
+
+--- STACKED
+questo form è diviso per aree, ovvero div che racchiudono elementi dell form.
+
+div:
+form-group
+
+valido per input, textarea e select:
+form-control				(opzionale) questo elemento ha width del 100%
+form-control-[sm lg]
+
+--- INLINE
+formalmente identico allo stacked, tranne per il fatto che al form viene assegnata la classe form-inline.
+per distanziare correttamente gli oggetti, us le utility, in particolare i margin.
+
+--- ESEMPIO: inserire informazioni di validazione
+
+ <form action="/action_page.php" class="was-validated">
+  <div class="form-group">
+    <label for="uname">Username:</label>
+    <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> 
+
+--- INPUT
+
+contenitore:
+input-group							per raggruppare solo elementi di tipo input
+form-group							per raggruppare diversi elementi
+									serve ad indicare qualcosa che ha l'aspetto di un form, ma che non è un form in senso di tag HTML
+
+elemento:
+form-control						(opzionale)
+form-control-plain-text				input testuali visualizzati come testo normale, senza casella
+
+--- RAGGRUPPAMENTI
+
+contenitore:
+input-group
+input-group-[sm lg]					dimensioni del gruppo finale
+
+elemento:
+input-group-[prepend append]		attenzione: conta anche l'ordine dei tag!
+input-group-text					testo semplice
+
+--- CHECKBOX, RADIO
+checkbox:
+
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+
+o anche, versione inline:
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+
+radio: cambia il tipo di input in "radio", l'implementazione è la stessa.
+versione inline: usa form-check-inline.
+
+--- ALTRI ELEMENTI NEL FORM
+
+custom checkbox:
+
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+    <label class="custom-control-label" for="customCheck">Check this custom checkbox</label>
+  </div>
+  
+custom switch:
+
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="switch1">
+    <label class="custom-control-label" for="switch1">Toggle me</label>
+  </div>
+
+... e molti altri ...

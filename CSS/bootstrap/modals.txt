@@ -1,0 +1,34 @@
+MODALS
+
+--- MODAL SEMPLICE
+
+anche per questo esiste una procedura esatta:
+
+1.	innanzitutto ci vuole un button che apra e chiuda il modal, o almeno qualche oggetto clickabile che possa funzionare da "interruttore". il button, oltre alle solite cose, deve avere anche questi attributi:
+	->	data-toggle="modal"
+	->	data-target="#..." con ... l'id del contenitore del modal
+
+2.	il modal è essenzialmente un div che contiene il markup di una finestra. il contenitore ha classe (sì, hai proprio indovinato!) "modal" e ha id ... . si può aggiungere anche un'animazione, tipo "fade"
+
+3.	lasciando solo così il codice, il massimo che si otterrebbe sarebbe solo un'obreggiatura del contenuto della pagina... non molto utile. per visualizzare la finestra di dialogo del modal servono ancora due contenitori innestati: il primo ha classe "modal-dialog", mentre l'altro ha classe "modal-content".
+
+4.	ora puoi scrivere il contenuto del modal.
+
+il modal è diviso in tre parti, esattamente come le cards: modal-[header body footer] .
+
+altri elementi particolari:
+modal-title				per gli h1 a h6 all'interno del modal
+modal-[sm lg xl]		per le dimensioni del modal (aggiungere al contenitore modal-dialog)
+						nota: di default il modal ha dimensioni medie
+modal-dialog-centered	modal centrato verticalmente e orizzontalmente (aggiungi a modal-dialog)
+modal-dialog-scrollable	da inserire quando il contenuto dl modal è eccessivamente esteso
+						nota: è necessario, dato che il modal si adatta al contenuto
+						però potrebbe non servire, ad esempio nei form modal potrebbe non servire. vedi tu
+
+---
+
+altre classi per controllare il modal:
+
+data-backdrop			{static, true, false} sfondo scuro? si/no. 
+						static: il modal non sparisce quando si clicca sullo sfondo scuro
+data-keyboard			{true, false} il modal può essere chiuso premendo esc? si/no

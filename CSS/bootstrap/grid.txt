@@ -9,7 +9,10 @@ automaticamente responsive.
 
 tutti i comandi bootstrap per le colonne seguono la sintassi
 
-col-[sm md lg xl]-[N]
+col						adattamento automatico (autolayout)
+col-[sm md lg xl]		adattamento automatico con dimensioni a seconda dello schermo
+						al di sotto di quelle dimensioni, l'elemento diventa una riga a sè
+col-[sm md lg xl]-[N]	dimensionamento manuale e adattamento a seconda delle dimensioni dello schermo
 
 dove N è il numero di 'colonne vicine' occupate da quella colonna.
 si può anche usare solo 'col': questo significa che bootstrap distribuirà in automatico le colonne lungo la riga.
@@ -26,3 +29,14 @@ PER SCHERMI PICCOLI O ZOOM ESAGERATO, BOOTSTRAP DISPORRA' IN AUTOMATICO LE COLON
 
 ---
 
+regole del grid system:
+
+le righe vanno messe in un container- o un container-fluid
+
+usa le rows per creare gruppi orizzontali di colonne
+
+il contenuto va piazzato dopo aver specificato riga e colonna
+
+---
+
+no-glutter				(aggiungi a row) rimuovi spazi inutili
