@@ -1,8 +1,0 @@
-alcune buone norme nella scrittura di un codice CSS:
-	https://www.html.it/articoli/ottimizzare-i-css/
-	https://www.html.it/articoli/linee-guida-per-lo-sviluppo-di-codice-css/
-	
-un "dizionario" completo degli attributi CSS:
-	https://meiert.com/en/indices/css-properties/
-con tanto di spiegazione attributo per attributo!
-

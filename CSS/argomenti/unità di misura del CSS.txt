@@ -1,6 +1,0 @@
-UNITÀ DI MISURA DEL CSS
-
-il CSS permette di utilizzare unità di misura per specificare i valori numerici. RICORDA: l'unità di misura è sempre attaccata al numero.
-
----
-
